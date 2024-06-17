@@ -7,9 +7,10 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import "../../../styles/header.scss";
 import Menu from "@/app/components/header/menu";
-import AudioPlayer from "@/app/components/header/AudioPlayer";
+import AudioPlayer from "@/app/components/header/audioPlayer";
 
 const Header = () => {
+  // const [openMenu, setOpenMenu] = useState(false)
   return (
     <header className={"header"}>
       <div className={"header__line"}>
@@ -17,12 +18,9 @@ const Header = () => {
           <div className={cn("headerBurger__box")}>
             <div>Menu</div>
           </div>
-        </div>
-        {/* <div className={cn(active == "nft" && "inactive")}>
           <AudioPlayer />
-        </div> */}
+        </div>
         <Menu />
-
         <div
           style={{
             display: "flex",
@@ -30,21 +28,17 @@ const Header = () => {
             pointerEvents: "auto",
           }}
         >
-          <>
-            <div style={{ opacity: 1, color: "white" }}>
-              <Link href={"/connect"}>
-                <button className={"wrapcast__connect"}>Connect</button>
-              </Link>
-            </div>
-            <div style={{ display: "none" }}>{/*<ConnectButtonCustom />*/}</div>
-          </>
+          <div style={{ opacity: 1, color: "white" }}>
+            <Link href={"/connect"}>
+              <button className={"wrapcast__connect"}>Connect</button>
+            </Link>
+          </div>
         </div>
       </div>
-      {/*<HeaderMenu*/}
-      {/*    routerPath={props.routerPath}*/}
-      {/*    openMenu={openMenu}*/}
-      {/*    closeMenuHandler={closeMenuHandler}*/}
-      {/*/>*/}
+      {/* <HeaderMenu
+        openMenu={openMenu}
+        closeMenuHandler={setOpenMenu}
+      /> */}
     </header>
   );
 };

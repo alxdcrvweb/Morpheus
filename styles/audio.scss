@@ -9,20 +9,19 @@
   justify-content: center;
   align-items: center;
   // width: 32px;
+  color: white;
   height: 32px;
   // flex: 0 0 32px;
-  margin-right: 20px;
   font-size: 12px;
   font-family: "DMSans";
   @media (max-width: ($md2+px)) {
     display: none !important;
   }
-  svg {
-    margin-right: 10px;
-  }
+  
   span {
     padding-left: 10px;
     border-left: 1px solid #EDEDED;
+    margin-left: 10px;
   }
   path {
     transition: stroke 0.3s ease 0s;
@@ -53,6 +52,11 @@
         }
       }
     }
+  }
+  // .audio_next
+  &_next {
+    cursor: pointer;
+    margin-left: 5px;
   }
   // .audio_awake
   &_awake {

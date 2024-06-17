@@ -225,14 +225,15 @@
     }
   }
   @media (min-width: ($md2+px)) {
-    opacity: 0;
-    pointer-events: none;
+    .headerBurger__box {
+      display: none;
+    }
   }
   cursor: pointer;
   pointer-events: fill;
   opacity: 1;
   position: relative;
-  width: 94px;
+  width: 163px;
   height: 35px;
   // .headerBurger__box
   &__box {
@@ -240,8 +241,9 @@
     height: 16px;
     z-index: 5;
     background-color: #212121;
-    width: 94px;
+    width: 163px;
     height: 35px;
+    display: block;
     border-radius: 20px;
     color: white;
     display: flex;
