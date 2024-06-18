@@ -15,8 +15,8 @@ export default function RootLayout({
       <body>
         {/*background*/}
         <div className="container">
-          <Image className={"bg"} src={background} fill={true} />
-          <Image className={"bg"} src={background2} fill={true} />
+          <Image className={"bg"} src={background} alt={"background"} fill={true} />
+          <Image className={"bg"} src={background2} alt={"background"} fill={true} />
         </div>
         <Header />
 
