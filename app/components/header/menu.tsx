@@ -13,13 +13,9 @@ const links = [
     link: "/story",
   },
   {
-    title: "Factions",
-    link: "/sleeping",
-  },
-  {
     title: "Gallery",
     link: "/gallery",
-    loginRequired: true,
+    loginRequired: false,
   },
   {
     title: "Leaderboard",

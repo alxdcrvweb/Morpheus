@@ -1,17 +1,17 @@
 "use client";
 import cn from "classnames";
 import { FC, useEffect, useState } from "react";
-import "../../../styles/audio.scss";
+import "../../../../styles/audio.scss";
 import NextSong from "./nextSong";
 
 const playlist = [
-  "/music/awake.mp3",
-  "/music/terminal.mp3",
-  "/music/sleeping.mp3",
+  "/player/awake.mp3",
+  "/player/terminal.mp3",
+  "/player/sleeping.mp3",
 ];
 
 
-const Player: FC = () => {
+const Index: FC = () => {
   const [music, setMusic] = useState<HTMLAudioElement | undefined>(undefined);
   const [activeTrack, setActiveTrack] = useState(0);
   const [musicStatus, setMusicStatus] = useState(false);
@@ -27,14 +27,14 @@ const Player: FC = () => {
     if (music && currentTrack == "") {
       music.pause();
       music.volume = 0;
-      localStorage.setItem("music", "false");
+      localStorage.setItem("audio", "false");
       return;
     }
     if (currentTrack == playlist[activeTrack] && music) {
       music.play();
       music.loop = true;
       music.volume = 0.2;
-      localStorage.setItem("music", "true");
+      localStorage.setItem("audio", "true");
     } else if (music && currentTrack !== playlist[activeTrack]) {
       music.src = playlist[activeTrack + 1]
         ? playlist[activeTrack + 1]
@@ -89,7 +89,7 @@ const Player: FC = () => {
           />
         </svg>
       )}
-      <span>{playlist[activeTrack].replace("/music/", "")}</span>
+      <span>{playlist[activeTrack].replace("/player/", "")}</span>
       <div
         className="audio_next"
         onClick={() => {
@@ -106,4 +106,4 @@ const Player: FC = () => {
   );
 };
 
-export default Player;
+export default Index;

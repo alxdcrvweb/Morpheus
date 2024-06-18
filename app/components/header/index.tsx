@@ -4,7 +4,9 @@ import cn from "classnames";
 import Link from "next/link";
 import "../../../styles/header.scss";
 import Menu from "../../components/header/menu";
-import Player from "./player";
+import Image from "next/image";
+import logo from '../../../public/logo.svg'
+// import Index from "../footer/player/player";
 
 const Header = () => {
   return (
@@ -14,7 +16,9 @@ const Header = () => {
           <div className={cn("headerBurger__box")}>
             <div>Menu</div>
           </div>
-          <Player />
+
+           <Image style={{marginTop:"7px"}} src={logo} alt={'Logo'} />
+          {/*<Index />*/}
         </div>
         <Menu />
         <div

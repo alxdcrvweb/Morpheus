@@ -4,6 +4,7 @@ import Image from "next/image";
 import background from "@/public/bg.png";
 import background2 from "@/public/bg_2.png";
 import Header from "@/app/components/header";
+import Footer from "@/app/components/footer";
 
 export default function RootLayout({
   children,
@@ -18,9 +19,10 @@ export default function RootLayout({
           <Image className={"bg"} src={background} alt={"background"} fill={true} />
           <Image className={"bg"} src={background2} alt={"background"} fill={true} />
         </div>
-        <Header />
 
-        <main>{children}</main>
+        <Header />
+          <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );

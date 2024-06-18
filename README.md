@@ -5,6 +5,8 @@ The Morpheus NFT Portal
 ------
 [] Finish Header
 
+[] loader
+
 [] Add connect and Portal
 
 [] Add State management
