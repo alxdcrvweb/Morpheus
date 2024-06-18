@@ -4,7 +4,7 @@ import cn from "classnames";
 import Link from "next/link";
 import "../../../styles/header.scss";
 import Menu from "../../components/header/menu";
-import AudioPlayer from "../../components/header/audioPlayer";
+import Player from "./player";
 
 const Header = () => {
   return (
@@ -14,7 +14,7 @@ const Header = () => {
           <div className={cn("headerBurger__box")}>
             <div>Menu</div>
           </div>
-          <AudioPlayer />
+          <Player />
         </div>
         <Menu />
         <div

@@ -1,15 +1,17 @@
 "use client";
-
 import cn from "classnames";
 import { FC, useEffect, useState } from "react";
 import "../../../styles/audio.scss";
 import NextSong from "./nextSong";
+
 const playlist = [
   "/music/awake.mp3",
   "/music/terminal.mp3",
   "/music/sleeping.mp3",
 ];
-const AudioPlayer: FC = () => {
+
+
+const Player: FC = () => {
   const [music, setMusic] = useState<HTMLAudioElement | undefined>(undefined);
   const [activeTrack, setActiveTrack] = useState(0);
   const [musicStatus, setMusicStatus] = useState(false);
@@ -104,4 +106,4 @@ const AudioPlayer: FC = () => {
   );
 };
 
-export default AudioPlayer;
+export default Player;
