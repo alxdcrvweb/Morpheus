@@ -1,16 +1,12 @@
 "use client";
-
-import { useRouter } from "next/router";
 import cn from "classnames";
-import { useEffect, useState } from "react";
 
 import Link from "next/link";
 import "../../../styles/header.scss";
-import Menu from "@/app/components/header/menu";
-import AudioPlayer from "@/app/components/header/audioPlayer";
+import Menu from "../../components/header/menu";
+import AudioPlayer from "../../components/header/audioPlayer";
 
 const Header = () => {
-  // const [openMenu, setOpenMenu] = useState(false)
   return (
     <header className={"header"}>
       <div className={"header__line"}>
