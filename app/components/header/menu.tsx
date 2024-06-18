@@ -18,8 +18,8 @@ const links = [
     loginRequired: false,
   },
   {
-    title: "Leaderboard",
-    link: "/leaderboard",
+    title: "Showdown",
+    link: "/showdown",
   },
 ];
 const Menu: FC = () => {

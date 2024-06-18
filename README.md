@@ -5,7 +5,7 @@ The Morpheus NFT Portal
 ------
 [] Finish Header
 
-[] loader
+[] loader for images (do we still need it?)
 
 [] Add connect and Portal
 
@@ -13,7 +13,9 @@ The Morpheus NFT Portal
 
 [] Update the Gallery
 
-[] Update the Showdown
+[] Update the audio player
+
+[x] Update the Showdown
 
 [] Morph to Frame v1.1
 
