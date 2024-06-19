@@ -1,3 +1,4 @@
+"use client";
 import "../styles/globals.scss";
 import "../styles/layout.scss";
 import Image from "next/image";
@@ -5,7 +6,10 @@ import background from "@/public/bg.png";
 import background2 from "@/public/bg_2.png";
 import Header from "@/app/components/header";
 import Footer from "@/app/components/footer";
-
+import "@rainbow-me/rainbowkit/styles.css";
+import React from "react";
+import RainbowProvider from "./components/connect/rainbowProvider";
+import Background from "./components/mainPage/background";
 export default function RootLayout({
   children,
 }: {
@@ -15,14 +19,12 @@ export default function RootLayout({
     <html lang="en">
       <body>
         {/*background*/}
-        <div className="container">
-          <Image className={"bg"} src={background} alt={"background"} fill={true} />
-          <Image className={"bg"} src={background2} alt={"background"} fill={true} />
-        </div>
-
-        <Header />
+        <RainbowProvider>
+          <Background />
+          <Header />
           <main>{children}</main>
-        <Footer />
+          <Footer />
+        </RainbowProvider>
       </body>
     </html>
   );
