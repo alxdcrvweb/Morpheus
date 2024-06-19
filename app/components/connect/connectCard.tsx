@@ -7,12 +7,17 @@ import card_image from "../../../public/connect/portal.png";
 import wallet from "../../../public/connect/wallet.svg";
 import farcaster from "../../../public/connect/farcaster.svg";
 import CustomConnect from "./customConnect";
-
+// import SignInButton from 
 function ConnectCard() {
   return (
     <>
       <div className="card">
-        <Image alt="portal" loading="lazy" src={card_image} className="card_image" />
+        <Image
+          alt="portal"
+          loading="lazy"
+          src={card_image}
+          className="card_image"
+        />
         <div className="card_content">
           <Image loading="lazy" src={logo} alt="logo" className="card_logo" />
           <div className="card_title">Morpheus Portal</div>
@@ -38,6 +43,11 @@ function ConnectCard() {
               className="card_farcaster_icon"
             />
             <div className="card_farcaster_connect">Connect Farcaster</div>
+            {/* <SignInButton
+              onSuccess={(profile) => {
+                console.log(profile, "profile");
+              }}
+            /> */}
           </div>
         </div>
       </div>
