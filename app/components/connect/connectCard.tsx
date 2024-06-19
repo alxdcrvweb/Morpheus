@@ -35,7 +35,7 @@ function ConnectCard() {
               loading="lazy"
               alt="farcaster"
               src={farcaster}
-              className="farcaster_icon"
+              className="card_farcaster_icon"
             />
             <div className="card_farcaster_connect">Connect Farcaster</div>
           </div>
