@@ -5,7 +5,7 @@ function ConnectCard() {
   return (
     <>
       <div className="card">
-        <img loading="lazy" src="/connect/connectImage.png" className="card_image" />
+        <img loading="lazy" src="/connect/portal.png" className="card_image" />
         <div className="card_content">
           <img
             loading="lazy"
@@ -26,7 +26,7 @@ function ConnectCard() {
           <div className="card_farcaster">
             <img
               loading="lazy"
-              src="/connect/warpcast.svg"
+              src="/connect/frcaster.svg"
               className="farcaster_icon"
             />
             <div className="card_connect">Connect Farcaster</div>
