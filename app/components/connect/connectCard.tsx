@@ -3,22 +3,16 @@ import * as React from "react";
 import "../../../styles/connect.scss";
 import Image from "next/image";
 import logo from "../../../public/logo.svg";
-import card_image from "../../../public/connect/connectImage.png";
+import card_image from "../../../public/connect/portal.png";
 import wallet from "../../../public/connect/wallet.svg";
-import warpcast from "../../../public/connect/warpcast.svg";
-import { useConnectModal } from "@rainbow-me/rainbowkit";
+import farcaster from "../../../public/connect/farcaster.svg";
 import CustomConnect from "./customConnect";
 
 function ConnectCard() {
   return (
     <>
       <div className="card">
-        <Image
-          loading="lazy"
-          alt="cardImage"
-          src={card_image}
-          className="card_image"
-        />
+        <Image alt="portal" loading="lazy" src={card_image} className="card_image" />
         <div className="card_content">
           <Image loading="lazy" src={logo} alt="logo" className="card_logo" />
           <div className="card_title">Morpheus Portal</div>
@@ -36,14 +30,14 @@ function ConnectCard() {
             <CustomConnect />
           </div>
           <div className="card_separator">or</div>
-          <div className="card_warpcast">
+          <div className="card_farcaster">
             <Image
               loading="lazy"
-              src={warpcast}
-              className="card_warpcast_icon"
-              alt="card_warpcast_icon"
+              alt="farcaster"
+              src={farcaster}
+              className="farcaster_icon"
             />
-            <div className="card_warpcast_connect">Connect Farcaster</div>
+            <div className="card_farcaster_connect">Connect Farcaster</div>
           </div>
         </div>
       </div>
