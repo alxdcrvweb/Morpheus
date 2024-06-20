@@ -1,5 +1,5 @@
 import { NextPage } from "next";
-import StorySlider from "../components/Story/StorySlider";
+import StorySlider from "../components/story/storySlider";
 import "../../styles/backstory.scss";
 
 const Backstory: NextPage = () => {

@@ -1,67 +1,57 @@
 "use client";
 
 import { FC } from "react";
-import "swiper/css";
-import "swiper/css/effect-fade";
-
-
 import "../../../styles/backstory.scss";
 import classNames from "classnames";
-import { useRouter } from 'next/navigation';
-
-
+import { useRouter } from "next/navigation";
+const story = [
+  {
+    className: "story__nightmare",
+    link: "nightmare_fuel",
+    title: "Nightmare Fuel",
+    description:
+      "City of Ayyon - the only inhabited place left on the planet after the. Nightmare Fuel also known as Great Conflict.",
+  },
+  {
+    className: "story__agreement",
+    link: "agreement",
+    title: "Agreement",
+    description:
+      "Years passed and the camps of both factions grew.The followers of the First moved deeper into the city, not renovating, but transforming the ruins of old Ayyon into the semblance of a living temple.",
+  },
+  {
+    className: "story__ayyon",
+    link: "modern",
+    title: "Modern Ayyon",
+    description: "100 years after agreement",
+  },
+];
 const StoryChoose: FC = () => {
-    const router = useRouter();
+  const router = useRouter();
 
-    const slide = (dir: string) => {
-        router.push("/backstory/" + dir);
-    };
+  const slide = (dir: string) => {
+    router.push("/backstory/" + dir);
+  };
 
-    return (
-        <div className={"story__choose"}>
-            <div className={"story__backstory"}>Backstory</div>
-            <div
-                className={classNames("story__part", "story__nightmare")}
-                onClick={() => slide("nightmare_fuel")}
-            >
-                <h2 className={classNames("story__title", "story__subtitle")}>
-                    <span>01</span>
-                    <img src="/icons/storyDecor.svg" alt="" />
-                    Nightmare Fuel
-                </h2>
-                <div>
-                    City of Ayyon - the only inhabited place left on the planet after the
-                    Nightmare Fuel also known as Great Conflict.{" "}
-                </div>
-            </div>
-            <div
-                className={classNames("story__part", "story__agreement")}
-                onClick={() => slide("agreement")}
-            >
-                <h2 className={classNames("story__title", "story__subtitle")}>
-                    <span>02</span>
-                    <img src="/icons/storyDecor.svg" alt="" />
-                    Agreement
-                </h2>
-                <div>
-                    Years passed and the camps of both factions grew.The followers of the
-                    First moved deeper into the city, not renovating, but transforming the
-                    ruins of old Ayyon into the semblance of a living temple.
-                </div>
-            </div>
-            <div
-                className={classNames("story__part", "story__ayyon")}
-                onClick={() => slide("modern")}
-            >
-                <h2 className={classNames("story__title", "story__subtitle")}>
-                    <span>03</span>
-                    <img src="/icons/storyDecor.svg" alt="" />
-                    Modern Ayyon
-                </h2>
-                <div>100 years after agreement</div>
-            </div>
+  return (
+    <div className={"story__choose"}>
+      <div className={"story__backstory"}>Backstory</div>
+      {story.map((story, i) => (
+        <div
+          className={classNames("story__part", story.className)}
+          onClick={() => slide(story.link)}
+          key={i}
+        >
+          <h2 className={classNames("story__title", "story__subtitle")}>
+            <span>0{i + 1}</span>
+            <img src="/backstory/storyDecor.svg" alt="" />
+            {story.title}
+          </h2>
+          <div>{story.description}</div>
         </div>
-    );
+      ))}
+    </div>
+  );
 };
 
 export default StoryChoose;
