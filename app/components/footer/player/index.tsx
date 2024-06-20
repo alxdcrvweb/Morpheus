@@ -2,7 +2,6 @@
 import cn from "classnames";
 import { FC, useEffect, useState } from "react";
 import "../../../../styles/audio.scss";
-import NextSong from "./nextSong";
 
 const playlist = [
   "/player/awake.mp3",
@@ -51,11 +50,14 @@ const Index: FC = () => {
   }, []);
   return (
     <div className={cn("audio", "audio_terminal")}>
+      <span className={cn("audio_title", musicStatus && "audio_title_changed")}>
+        {playlist[activeTrack].replace("/player/", "")}
+      </span>
       <div
         onClick={() => !musicStatus && setMusicStatus(!musicStatus)}
-        className={cn("audio_play", musicStatus && "audio_open")}
+        className={cn("audio_open")}
       >
-        {musicStatus && (
+        {
           <img
             src="/player/play.svg"
             className="audio_change_reverse"
@@ -67,16 +69,18 @@ const Index: FC = () => {
               }
             }}
           />
-        )}
-        {!musicStatus ? (
-          <img src="/player/play.svg" />
-        ) : (
-          <img
-            src="/player/pause.svg"
-            onClick={() =>  setMusicStatus(!musicStatus)}
-          />
-        )}
-        {musicStatus && (
+        }
+        <div className="audio_pause">
+          {!musicStatus ? (
+            <img src="/player/play.svg" />
+          ) : (
+            <img
+              src="/player/pause.svg"
+              onClick={() => setMusicStatus(!musicStatus)}
+            />
+          )}
+        </div>
+        {
           <img
             src="/player/play.svg"
             className="audio_change"
@@ -88,11 +92,8 @@ const Index: FC = () => {
               }
             }}
           />
-        )}
+        }
       </div>
-      <span className={cn("audio_title", musicStatus && "audio_title_changed")}>
-        {playlist[activeTrack].replace("/player/", "")}
-      </span>
     </div>
   );
 };

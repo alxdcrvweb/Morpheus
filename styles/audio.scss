@@ -6,31 +6,37 @@
   pointer-events: auto;
   cursor: pointer;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  // width: 32px;
+  justify-content: space-between;
+  // align-items: center;
+  flex-direction: column;
+  margin-left: 50px;
   color: white;
-  height: 32px;
-  // flex: 0 0 32px;
+  margin-bottom: 25px;
   font-size: 12px;
+  width: 245px;
+  height: 81px;
   font-family: "DMSans";
-  padding-bottom: 25px;
-  padding-left: 20px;
+  padding-bottom: 10px;
+  background-image: url(../public/player/playerBackground.png);
+  background-size: contain;
+  padding-left: 13px;
+  padding-top: 10px;
   @media (max-width: ($md2+px)) {
     display: none !important;
   }
   // .audio_title
   &_title {
-    padding-left: 10px;
     z-index: 10;
     transition: 300ms ease all;
-    margin-left: 80px;
+    font-family: 'Moderat';
+    text-transform: uppercase;
+    font-size: 16px;
     margin-bottom: 2px;
   }
   // .audio_title_changed
-  &_title_changed {
-    transform: translateX(10px);
-  }
+  // &_title_changed {
+  //   transform: translateX(10px);
+  // }
   path {
     transition: stroke 0.3s ease 0s;
   }
@@ -60,6 +66,13 @@
         }
       }
     }
+  }
+  &_pause {
+    width: 15px;
+    height: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   // .audio_next
   &_next {
@@ -103,7 +116,8 @@
   }
   // .audio_open
   &_open {
-    width: 150px !important;
+    display: flex;
+    // width: 150px !important;
   }
   // .audio_play
   &_play {
