@@ -5,7 +5,7 @@ import Header from "@/app/components/header";
 import Footer from "@/app/components/footer";
 import "@rainbow-me/rainbowkit/styles.css";
 import React from "react";
-import RainbowProvider from "./components/connect/rainbowProvider";
+import ConnectProvider from "./components/connect/connectProvider";
 import Index from "./components/background";
 export default function RootLayout({
   children,
@@ -15,12 +15,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <RainbowProvider>
+        <ConnectProvider>
           <Index />
             <Header />
               <main>{children}</main>
             <Footer />
-        </RainbowProvider>
+        </ConnectProvider>
       </body>
     </html>
   );

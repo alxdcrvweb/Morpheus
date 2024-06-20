@@ -77,6 +77,22 @@
   object-position: center;
   width: 10px;
 }
+._1n3pr301 {
+  width: 197px;
+  position: absolute;
+  height: 29px;
+  opacity: 0;
+  transform: translateY(-29px);
+}
+.card_farcaster_cast {
+  opacity: 1;
+  height: 29px;
+  z-index: 10;
+  width: 197px;
+  // margin-left: -11px;
+  // margin-top: -9px;
+  // width: ;
+}
 .card_wallet_connect {
   font: "ApocLC", sans-serif;
   flex-grow: 1;
@@ -108,7 +124,7 @@
   gap: 20px;
   font-size: 11px;
   color: #fff;
-  cursor: pointer;
+  // cursor: pointer;
   text-align: center;
   letter-spacing: 0.66px;
   line-height: 95%;

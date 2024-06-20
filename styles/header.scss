@@ -219,6 +219,13 @@
   margin-top: 5px;
 }
 .headerBurger {
+  @media (max-width: 991px) {
+    display: flex;
+    flex-direction: row-reverse;
+    img {
+      margin-right: 10px;
+    }
+  }
   &__act {
     display: flex;
     align-items: center;
@@ -235,8 +242,8 @@
   pointer-events: fill;
   opacity: 1;
   position: relative;
-  width: 104px;
   height: 35px;
+  width: 104px;
   // .headerBurger__box
   &__box {
     width: 20px;

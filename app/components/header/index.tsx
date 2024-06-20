@@ -11,7 +11,7 @@ import { addressSlice } from "@/utils/common";
 // import Index from "../footer/player/player";
 
 const Header = () => {
-  const { address } = useConnect();
+  const { address, warpcastUser } = useConnect();
   return (
     <header className={"header"}>
       <div className={"header__line"}>
@@ -31,14 +31,30 @@ const Header = () => {
             pointerEvents: "auto",
           }}
         >
-          <div style={{ opacity: 1, color: "white" }}>
-            {/* {!address && */}
-            <Link href={"/connect"}>
-              <button className={"wrapcast__connect"}>
-                {!address ? "Connect" : addressSlice(address)}
-              </button>
-            </Link>
-            {/* } */}
+          <div style={{ color: "white" }}>
+            {warpcastUser ? (
+              <a
+                href={`https://warpcast.com/${warpcastUser.username}`}
+                target="_blank"
+              >
+                <button className={"wrapcast__connect"}>
+                  {warpcastUser.displayName}
+                </button>
+              </a>
+            ) : (
+              <Link
+                href={
+                  address
+                    ? "https://basescan.org/address/" + address
+                    : "/connect"
+                }
+                target="_blank"
+              >
+                <button className={"wrapcast__connect"}>
+                  {!address ? "Connect" : addressSlice(address)}
+                </button>
+              </Link>
+            )}
           </div>
         </div>
       </div>

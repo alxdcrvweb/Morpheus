@@ -7,8 +7,36 @@ import card_image from "../../../public/connect/portal.png";
 import wallet from "../../../public/connect/wallet.svg";
 import farcaster from "../../../public/connect/farcaster.svg";
 import CustomConnect from "./customConnect";
-// import SignInButton from 
+import { SignInButton } from "@farcaster/auth-kit";
+import "@farcaster/auth-kit/styles.css";
+import { UserVerification, useConnect } from "@/store/useConnect";
+import { useRouter } from "next/navigation";
+
+// import SignInButton from
 function ConnectCard() {
+  const { setWarpcastUser, warpcastUser } = useConnect();
+  const router = useRouter();
+  const [user, setUser] = React.useState<UserVerification | undefined>(
+    undefined
+  );
+
+  React.useEffect(() => {
+    if (user) {
+      localStorage.setItem("warpcastUser", JSON.stringify(user));
+      setWarpcastUser(user);
+      router.push("/");
+    }
+  }, [user]);
+
+  React.useEffect(() => {
+    let user = localStorage.getItem("warpcastUser");
+    if (user) {
+      let userObject = JSON.parse(user);
+      setWarpcastUser(userObject as UserVerification);
+      router.push("/");
+    }
+  }, []);
+
   return (
     <>
       <div className="card">
@@ -43,12 +71,17 @@ function ConnectCard() {
               className="card_farcaster_icon"
             />
             <div className="card_farcaster_connect">Connect Farcaster</div>
-            {/* <SignInButton
+          </div>
+          {/* <div className="card_farcaster_cast"> */}
+          {!warpcastUser && (
+            <SignInButton
               onSuccess={(profile) => {
                 console.log(profile, "profile");
+                setUser(profile as UserVerification);
               }}
-            /> */}
-          </div>
+            />
+          )}
+          {/* </div> */}
         </div>
       </div>
     </>
