@@ -50,9 +50,14 @@ const Index: FC = () => {
   }, []);
   return (
     <div className={cn("audio", "audio_terminal")}>
-      <span className={cn("audio_title", musicStatus && "audio_title_changed")}>
-        {playlist[activeTrack].replace("/player/", "")}
-      </span>
+      <div>
+        <span
+          className={cn("audio_title", musicStatus && "audio_title_changed")}
+        >
+          {playlist[activeTrack].replace("/player/", "")}
+        </span>
+        <div className="audio_author">Morpheus team</div>
+      </div>
       <div
         onClick={() => !musicStatus && setMusicStatus(!musicStatus)}
         className={cn("audio_open")}

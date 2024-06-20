@@ -24,11 +24,20 @@
   @media (max-width: ($md2+px)) {
     display: none !important;
   }
+  // .audio_author
+  &_author {
+    color: #cacaca;
+    font-family: "ApocLC";
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+  }
   // .audio_title
   &_title {
     z-index: 10;
     transition: 300ms ease all;
-    font-family: 'Moderat';
+    font-family: "Moderat";
     text-transform: uppercase;
     font-size: 16px;
     margin-bottom: 2px;
