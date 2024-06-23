@@ -76,9 +76,11 @@
       }
     }
   }
+  // .audio_pause
   &_pause {
     width: 15px;
     height: 15px;
+    margin-top: -2px;
     display: flex;
     justify-content: center;
     align-items: center;

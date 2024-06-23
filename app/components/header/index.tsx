@@ -48,7 +48,6 @@ const Header = () => {
                     ? "https://basescan.org/address/" + address
                     : "/connect"
                 }
-                target="_blank"
               >
                 <button className={"wrapcast__connect"}>
                   {!address ? "Connect" : addressSlice(address)}

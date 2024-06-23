@@ -2,8 +2,10 @@
 
 import { FC } from "react";
 import "../../../styles/backstory.scss";
+import storyDecor from '../../../public/backstory/storyDecor.svg'
 import classNames from "classnames";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 const story = [
   {
     className: "story__nightmare",
@@ -44,7 +46,7 @@ const StoryChoose: FC = () => {
         >
           <h2 className={classNames("story__title", "story__subtitle")}>
             <span>0{i + 1}</span>
-            <img src="/backstory/storyDecor.svg" alt="" />
+            <Image src={storyDecor} alt="story" />
             {story.title}
           </h2>
           <div>{story.description}</div>

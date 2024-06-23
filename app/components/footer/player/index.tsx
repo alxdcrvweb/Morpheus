@@ -2,14 +2,16 @@
 import cn from "classnames";
 import { FC, useEffect, useState } from "react";
 import "../../../../styles/audio.scss";
-
+import Image from "next/image";
+import play from "../../../../public/player/play.svg";
+import pause from "../../../../public/player/pause.svg";
 const playlist = [
   "/player/awake.mp3",
   "/player/terminal.mp3",
   "/player/sleeping.mp3",
 ];
 
-const Index: FC = () => {
+const Player: FC = () => {
   const [music, setMusic] = useState<HTMLAudioElement | undefined>(undefined);
   const [activeTrack, setActiveTrack] = useState(0);
   const [musicStatus, setMusicStatus] = useState(false);
@@ -63,8 +65,9 @@ const Index: FC = () => {
         className={cn("audio_open")}
       >
         {
-          <img
-            src="/player/play.svg"
+          <Image
+            alt="play"
+            src={play}
             className="audio_change_reverse"
             onClick={() => {
               if (activeTrack > 0) {
@@ -77,17 +80,19 @@ const Index: FC = () => {
         }
         <div className="audio_pause">
           {!musicStatus ? (
-            <img src="/player/play.svg" />
+            <Image src={play} alt="play" />
           ) : (
-            <img
-              src="/player/pause.svg"
+            <Image
+              src={pause}
+              alt="pause"
               onClick={() => setMusicStatus(!musicStatus)}
             />
           )}
         </div>
         {
-          <img
-            src="/player/play.svg"
+          <Image
+            alt="next"
+            src={play}
             className="audio_change"
             onClick={() => {
               if (activeTrack < playlist.length - 1) {
@@ -103,4 +108,4 @@ const Index: FC = () => {
   );
 };
 
-export default Index;
+export default Player;
