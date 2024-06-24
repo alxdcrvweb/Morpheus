@@ -5,11 +5,29 @@ import "../../../../styles/audio.scss";
 import Image from "next/image";
 import play from "../../../../public/player/play.svg";
 import pause from "../../../../public/player/pause.svg";
+
+
 const playlist = [
   "/player/awake.mp3",
-  "/player/terminal.mp3",
-  "/player/sleeping.mp3",
+  // "/player/terminal.mp3",
+  "/player/sleeping.mp3"
 ];
+
+//temporary solution
+const titles = ["VIGILANT OST", "SLEEPER OST"]
+
+//so the idea is to be able to add songs and change cover
+// we need a more complex object to do this
+
+//example object
+const playlist_2 = [{
+  path: '/player/awake.mp3',
+  title: 'VIGILAN OST',
+  cover: '/public/music/vigilant.png'
+}]
+
+//and so on
+
 
 const Player: FC = () => {
   const [music, setMusic] = useState<HTMLAudioElement | undefined>(undefined);
@@ -56,7 +74,7 @@ const Player: FC = () => {
         <span
           className={cn("audio_title", musicStatus && "audio_title_changed")}
         >
-          {playlist[activeTrack].replace("/player/", "")}
+          {titles[activeTrack]}
         </span>
         <div className="audio_author">Morpheus team</div>
       </div>

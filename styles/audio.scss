@@ -26,18 +26,18 @@
   }
   // .audio_author
   &_author {
-    color: #cacaca;
+    color: #ADADAD;
     font-family: "ApocLC";
-    font-size: 10px;
+    font-size: 12px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 200;
     line-height: 18px;
   }
   // .audio_title
   &_title {
     z-index: 10;
     transition: 300ms ease all;
-    font-family: "Moderat";
+    font-family: "Moderat-Bold";
     text-transform: uppercase;
     font-size: 16px;
     margin-bottom: 2px;
