@@ -73,7 +73,7 @@ function GalleryComponent() {
                 />
               );
             })}
-          {Array(5 - (gallery?.length ? gallery?.length : 0)
+          {Array(5 - (gallery?.length ? gallery?.length : 0))
             .fill(null)
             .map((_, index) => (
               <div key={index} className="gallery_placeholder" />
