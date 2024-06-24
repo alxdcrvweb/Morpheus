@@ -11,6 +11,15 @@ import Image from "next/image";
 function GalleryComponent() {
   const { gallery, setGallery } = useGallery();
   const { address } = useConnect();
+  const emptyCards = React.useMemo(() => {
+    if (!gallery) return 5;
+    if (gallery.length > 5) {
+      return 0;
+    }
+    if (gallery.length <= 5) {
+      return 5 - gallery.length;
+    }
+  }, [gallery]);
   const getGallery = async () => {
     console.log(chainId);
     const params = {
@@ -73,7 +82,7 @@ function GalleryComponent() {
                 />
               );
             })}
-          {Array(5 - (gallery?.length ? gallery?.length : 0))
+          {Array(emptyCards)
             .fill(null)
             .map((_, index) => (
               <div key={index} className="gallery_placeholder" />
