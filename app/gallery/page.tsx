@@ -6,7 +6,7 @@ import "../../styles/gallery.scss";
 const GalleryPage = () => {
   return (
     <div className="gallery_page">
-      <GalleryProfile />
+      <GalleryProfile mainImage={"/gallery/profile.png"} />
       <GalleryComponent />
     </div>
   );

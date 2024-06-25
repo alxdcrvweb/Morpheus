@@ -1,16 +1,17 @@
 import * as React from "react";
 import "../../../styles/gallery.scss";
-import { useGallery } from "@/store/useGallery";
+import { IChar, IGallery, useGallery } from "@/store/useGallery";
 import { useConnect } from "@/store/useConnect";
 import axios from "axios";
 import { chainId } from "@/config/config";
 import logo from "../../../public/logo.svg";
 import view from "../../../public/gallery/view.svg";
 import Image from "next/image";
+import Link from "next/link";
 
 function GalleryComponent() {
   const { gallery, setGallery } = useGallery();
-  const { address } = useConnect();
+  const { address, warpcastUser } = useConnect();
   const emptyCards = React.useMemo(() => {
     if (!gallery) return 5;
     if (gallery.length > 5) {
@@ -23,41 +24,30 @@ function GalleryComponent() {
   const getGallery = async () => {
     console.log(chainId);
     const params = {
-      chain: chainId,
       address: address,
+      fid: warpcastUser?.fid,
     };
-
+    //@ts-ignore
     const query = new URLSearchParams(params).toString();
 
     try {
       const res = await axios.get("/api/nfts?" + query);
       console.log(res);
 
-      return (
-        res.data
-          // .filter((el: any) => el.token_uri)
-          .map((el: any) => {
-            // console.log(el);
-            return {
-              block_number: el.block_number,
-              id: el.token_id,
-              owner: el.owner_of,
-              ...el.normalized_metadata,
-            };
-          })
-      );
+      return res.data;
     } catch (e) {
       console.log(e);
     }
   };
   React.useEffect(() => {
-    if (address) {
-      getGallery().then((gal: any) => {
+    if (address || warpcastUser?.fid) {
+      getGallery().then((gal: IChar[]) => {
+        //@ts-ignore
         setGallery(gal);
       });
     }
-  }, [address]);
-  console.log(gallery);
+  }, [address, warpcastUser?.fid]);
+
   return (
     <div className="gallery_container">
       <div className="gallery_main_content">
@@ -71,17 +61,19 @@ function GalleryComponent() {
           />
         </div>
         <div className="gallery">
-          {gallery
-            .filter((_, i) => i < 5)
-            .map((el, i) => {
-              return (
-                <img
-                  key={i}
-                  src={"/api/image?id=" + el.id}
-                  className="gallery_image"
-                />
-              );
-            })}
+          {gallery &&
+            gallery
+              .filter((_, i) => i < 5)
+              .map((el, i) => {
+                return (
+                  <Link href={`/gallery/${el.tokenId}`} key={i}>
+                    <img
+                      src={"/api/image?id=" + el.tokenId}
+                      className="gallery_image"
+                    />
+                  </Link>
+                );
+              })}
           {Array(emptyCards)
             .fill(null)
             .map((_, index) => (

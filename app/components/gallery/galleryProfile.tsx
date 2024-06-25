@@ -1,21 +1,24 @@
 import * as React from "react";
-import "../../../styles/gallery.scss";
-import Image from "next/image";
-import mainImage from "../../../public/gallery/profile.png";
+import Image, { StaticImageData } from "next/image";
 import logo from "../../../public/logo.svg";
-import button from "../../../public/gallery/button.svg";
-
 import { useConnect } from "@/store/useConnect";
 import { addressSlice } from "@/utils/common";
-
-const GalleryProfile = () => {
+import "../../../styles/profile.scss";
+const GalleryProfile = ({
+  mainImage,
+  name,
+}: {
+  mainImage: string;
+  name?: string;
+}) => {
   const { address } = useConnect();
   return (
     <>
       <div className="profile_container">
-        <Image
+        <img
           loading="lazy"
           src={mainImage}
+          key={mainImage}
           alt="profile"
           className="profile_main_image"
         />
@@ -26,7 +29,9 @@ const GalleryProfile = () => {
             className="profile_logo"
             alt="logo"
           />
-          <div className="profile_username">{addressSlice(address)}</div>
+          <div className="profile_username">
+            {name ? name : addressSlice(address)}
+          </div>
           <div className="profile_message">Welcome to the Journey</div>
           <div className="profile_button">Ch. 2 Entrance</div>
         </div>

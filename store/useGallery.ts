@@ -1,11 +1,28 @@
 import { create } from "zustand";
-
+export interface IChar {
+  _id: string;
+  tokenId: number;
+  owner: string;
+  image: string;
+  name: string;
+  metadata: [
+    {
+      trait_type: string;
+      value: string;
+      _id: string;
+    }
+  ];
+}
 export interface IGallery {
-  gallery: any[];
-  setGallery: (g: any[]) => void;
+  gallery?: IChar[];
+  oneChar?: IChar;
+  setGallery?: (g: IChar[]) => void;
+  setOneChar?: (g: IChar) => void;
 }
 
 export const useGallery = create<IGallery>()((set) => ({
   gallery: [],
-  setGallery: (u:any) => set(() => ({ gallery: u })),
+  oneChar: undefined,
+  setOneChar: (u: IChar) => set(() => ({ oneChar: u })),
+  setGallery: (u: IChar[]) => set(() => ({ gallery: u })),
 }));

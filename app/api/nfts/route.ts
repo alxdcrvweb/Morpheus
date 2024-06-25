@@ -5,32 +5,30 @@ import { mintContract } from "../../../utils/contracts/mint";
 import { moralisUrl } from "@/config/config";
 import { NextRequest, NextResponse } from "next/server";
 import axios from "axios";
-
+export const indexer = "https://index.mrphs.io";
 export async function GET(req: NextRequest) {
   const address = req.nextUrl.searchParams.get("address");
-  const chain = req.nextUrl.searchParams.get("chain")?.toString()
-  const params = {
-    chain: chain,
-    offset: "1",
-    normalizeMetadata: "true",
-    token_addresses: mintContract,
-  };
-  //@ts-ignore
-  const query = new URLSearchParams(params).toString();
+  const fid = req.nextUrl.searchParams.get("fid");
   try {
-    const res = await axios.get(moralisUrl + address + `/nft/?` + query, {
-      headers: {
-        "X-API-Key": process.env.NEXT_PUBLIC_MORALIS_API_KEY as string,
-      },
-    });
-    return new NextResponse(JSON.stringify(res.data.result), {
-      headers: {
-        "Content-Type": "text/html",
-      },
-      status: 200,
-    });
+    if (address) {
+      const res = await axios.get(indexer + "/api/held/adr/" + address);
+      return new NextResponse(JSON.stringify(res.data.tokens), {
+        headers: {
+          "Content-Type": "text/html",
+        },
+        status: 200,
+      });
+    }
+    if (fid) {
+      const res = await axios.get(indexer + "/api/held/fid/" + fid);
+      return new NextResponse(JSON.stringify(res.data.tokens), {
+        headers: {
+          "Content-Type": "text/html",
+        },
+        status: 200,
+      });
+    }
   } catch (error: any) {
-
     return new NextResponse(JSON.stringify(error), {
       headers: {
         "Content-Type": "text/html",
