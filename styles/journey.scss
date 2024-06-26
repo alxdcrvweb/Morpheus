@@ -1,0 +1,89 @@
+.journey {
+  margin-top: 163px;
+  display: flex;
+  justify-content: center;
+  &__title {
+    color: #fff;
+    font-family: "ApocLC";
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  &__all {
+    margin-top: -45px;
+  }
+  &__menu {
+    display: flex;
+    position: absolute;
+    max-width: 218px;
+    flex-direction: column;
+    font-size: 12px;
+    transform: translateX(-460px);
+    font-weight: 400;
+    letter-spacing: 0.72px;
+    line-height: 100%;
+    padding: 0px;
+    font-family: "ApocLC", sans-serif;
+    color: #fff;
+  }
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+    width: 629px;
+  }
+  &__image {
+    width: 151px;
+    height: 181px;
+    border-radius: 10px;
+  }
+  &__divider {
+    border-radius: 20px;
+    background-color: #fff;
+    align-self: center;
+    height: 4px;
+    width: 100%;
+    &_large {
+      margin-top: 134px;
+    }
+  }
+
+  &__description,
+  &__contribute {
+    line-height: 20px;
+    margin-top: 15px;
+    width: 100%;
+    &_large {
+      margin-top: 14px;
+    }
+    a {
+      color: white;
+      text-decoration: underline;
+    }
+  }
+
+  &__stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
+    grid-template-rows: repeat(4, 1fr);
+    margin-top: 18px;
+
+    &_item {
+      display: flex;
+      justify-content: space-between;
+      width: 103px;
+      height: 23px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      display: flex;
+      justify-content: space-between;
+      padding: 4px;
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    &_label,
+    &_value {
+      font-family: inherit;
+    }
+  }
+}
