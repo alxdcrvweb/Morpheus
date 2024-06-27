@@ -2,15 +2,18 @@
   margin-top: 163px;
   display: flex;
   justify-content: center;
+  // .journey__title
   &__title {
     color: #fff;
     font-family: "ApocLC";
     font-size: 24px;
     margin-bottom: 20px;
   }
+  // .journey__all
   &__all {
     margin-top: -45px;
   }
+  // .journey__menu
   &__menu {
     display: flex;
     position: absolute;
@@ -30,28 +33,34 @@
       margin-right: 20px;
     }
   }
+  // .journey__list
   &__list {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 5px;
     width: 629px;
   }
+  // .journey__image
   &__image {
     width: 151px;
     height: 181px;
     border-radius: 10px;
+    object-fit: cover;
   }
+  // .journey__divider
   &__divider {
     border-radius: 20px;
     background-color: #fff;
     align-self: center;
     height: 4px;
     width: 100%;
+    // .journey__divider_large
     &_large {
       margin-top: 134px;
     }
   }
-
+  // .journey__contribute
+  // .journey__description
   &__description,
   &__contribute {
     line-height: 20px;
@@ -65,16 +74,22 @@
       text-decoration: underline;
     }
   }
-
+  // .journey__stats
   &__stats {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 5px;
     grid-template-rows: repeat(4, 1fr);
     margin-top: 18px;
-
+    // .journey__stats_active
+    &_active {
+      background-color: white!important;
+      color: black;
+    }
+    // .journey__stats_item
     &_item {
       display: flex;
+      cursor: pointer;
       justify-content: space-between;
       width: 103px;
       height: 23px;
@@ -85,7 +100,8 @@
       padding: 4px;
       background-color: rgba(0, 0, 0, 0.7);
     }
-
+    // .journey__stats_label
+    // .journey__stats_value
     &_label,
     &_value {
       font-family: inherit;
@@ -97,6 +113,7 @@
     justify-content: flex-start;
     margin-top: 74px;
     max-height: calc(100vh - 74px);
+    // .journey__all
     &__all {
       margin-top: 0px;
       display: flex;
@@ -104,11 +121,13 @@
       align-items: center;
       margin-top: 60px;
     }
+    // .journey__menu
     &__menu {
       max-width: 359px;
       width: 317px;
       margin-right: 0px;
     }
+    // .journey__list
     &__list {
       display: grid;
       max-width: 359px;
@@ -117,20 +136,24 @@
       grid-template-columns: repeat(2, 1fr);
       margin-bottom: 30px;
     }
+    // .journey__title
     &__title {
       max-width: 359px;
       width: 100%;
     }
+    // .journey__divider
     &__divider {
+      // .journey__divider_large
       &_large {
         display: none;
       }
     }
-
+    // .journey__stats
     &__stats {
       grid-template-columns: repeat(3, 1fr);
       grid-template-rows: repeat(3, 1fr);
     }
+    // .journey__contribute
     &__contribute {
       display: none;
     }

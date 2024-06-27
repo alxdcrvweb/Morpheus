@@ -1,19 +1,37 @@
 "use client";
 import "../../../styles/journey.scss";
 import { useJourney } from "@/store/useJourney";
-
+import journey from "../../../journey.json";
+import Link from "next/link";
+import { useMemo } from "react";
 const JourneyList = () => {
   const { currentType } = useJourney();
-  const test = [1, 2, 3, 4, 5, 6, 7, 8];
+  const journeyFilter = useMemo(() => {
+    if (currentType == "Gated") {
+      return journey.filter((el) => el.gated);
+    } else if (currentType !== "All") {
+      return journey.filter((el) => el.type == currentType);
+    } else {
+      return journey;
+    }
+  }, [currentType]);
   return (
     <div className="journey__all">
-      <div className="journey__title">{currentType}: 8</div>
+      <div className="journey__title">
+        {currentType}: {journeyFilter.length}
+      </div>
       <div className="journey__list">
-        {test.map((story, i) => {
+        {journeyFilter.map((story, i) => {
           return (
-            <div className="journey__el" key={i}>
-              <img src="/backstory/ayyon.png" className="journey__image" />
-            </div>
+            <Link
+              href={story.link}
+              target={story.link.includes("http") ? "_blank" : "_self"}
+              key={story.title}
+            >
+              <div className="journey__el" key={i}>
+                <img src={story.image} className="journey__image" />
+              </div>
+            </Link>
           );
         })}
       </div>

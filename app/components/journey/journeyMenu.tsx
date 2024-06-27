@@ -1,5 +1,9 @@
-import React from "react";
+"use client";
+import React, { useMemo } from "react";
 import "../../../styles/journey.scss";
+import { useJourney } from "@/store/useJourney";
+import classNames from "classnames";
+import journey from "../../../journey.json";
 
 const statsData = [
   { label: "All", value: 38 },
@@ -13,6 +17,18 @@ const statsData = [
 ];
 
 function JourneyMenu() {
+  const { currentType, setCurrentType } = useJourney();
+  const values = useMemo(() => {
+    return statsData.map((data) => {
+      if (data.label == "Gated") {
+        return journey.filter((el) => el.gated).length;
+      }
+      if (data.label == "All") {
+        return journey.length;
+      }
+      return journey.filter((el) => data.label == el.type).length;
+    });
+  }, []);
   return (
     <div className="journey__menu">
       <div className="journey__divider" />
@@ -20,16 +36,26 @@ function JourneyMenu() {
         Learn more about our collection and events related to it
       </div>
       <div className="journey__stats">
-        {statsData.map((stat, index) => (
-          <div key={index} className="journey__stats_item">
+        {statsData.map((stat, i) => (
+          <div
+            key={i}
+            className={classNames(
+              "journey__stats_item",
+              stat.label == currentType && "journey__stats_active"
+            )}
+            onClick={() => setCurrentType(stat.label)}
+          >
             <div className="journey__stats_label">{stat.label}:</div>
-            <div className="journey__stats_value">{stat.value}</div>
+            <div className="journey__stats_value">{values[i]}</div>
           </div>
         ))}
       </div>
       <div className="journey__divider journey__divider_large" />
       <div className="journey__contribute">
-        The page is open-source. Learn how to contribute to it <span><a href="">here</a></span>
+        The page is open-source. Learn how to contribute to it{" "}
+        <span>
+          <a href="">here</a>
+        </span>
       </div>
     </div>
   );
