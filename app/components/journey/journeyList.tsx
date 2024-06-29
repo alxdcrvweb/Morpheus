@@ -29,7 +29,9 @@ const JourneyList = () => {
               key={story.title}
             >
               <div className="journey__el" key={i}>
+                <div className="journey__type">{story.type}</div>
                 <img src={story.image} className="journey__image" />
+                <div className="journey__text">{story.title}</div>
               </div>
             </Link>
           );

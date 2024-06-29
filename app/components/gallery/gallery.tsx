@@ -8,10 +8,13 @@ import logo from "../../../public/logo.svg";
 import view from "../../../public/gallery/view.svg";
 import Image from "next/image";
 import Link from "next/link";
+import classNames from "classnames";
+import GalleryImage from "./galleryImage";
 
 function GalleryComponent() {
   const { gallery, setGallery } = useGallery();
   const { address, warpcastUser } = useConnect();
+  const [fullView, setFullView] = React.useState(false);
   const emptyCards = React.useMemo(() => {
     if (!gallery) return 5;
     if (gallery.length > 5) {
@@ -49,10 +52,15 @@ function GalleryComponent() {
   }, [address, warpcastUser?.fid]);
 
   return (
-    <div className="gallery_container">
+    <div
+      className={classNames(
+        "gallery_container",
+        fullView && "gallery_container_all"
+      )}
+    >
       <div className="gallery_main_content">
         <div className="gallery_header">
-          <div className="gallery_title">Morpheus: 1</div>
+          <div className="gallery_title">Morpheus: {gallery?.length}</div>
           <Image
             alt="logo"
             loading="lazy"
@@ -65,40 +73,53 @@ function GalleryComponent() {
             gallery
               .filter((_, i) => i < 5)
               .map((el, i) => {
-                return (
-                  <Link href={`/gallery/${el.tokenId}`} key={i}>
-                    <img
-                      src={"/api/image?id=" + el.tokenId}
-                      className="gallery_image"
-                    />
-                  </Link>
-                );
+                return <GalleryImage el={el} i={i} key={i} />;
               })}
           {Array(emptyCards)
             .fill(null)
             .map((_, index) => (
               <div key={index} className="gallery_placeholder" />
             ))}
+          {gallery &&
+            fullView &&
+            gallery
+              .filter((_, i) => i > 5)
+              .map((el, i) => {
+                return <GalleryImage el={el} i={i} key={i} />;
+              })}
+          {/* {fullView &&
+            Array(emptyCards)
+              .fill(null)
+              .map((_, index) => (
+                <div key={index} className="gallery_placeholder" />
+              ))} */}
         </div>
-        <div className="gallery_footer">
-          <div className="gallery_view_all">View all</div>
-          <Image
-            alt="view_icon"
-            loading="lazy"
-            src={view}
-            className="gallery_view_icon"
-          />
-        </div>
+        {!fullView && (
+          <div className="gallery_footer">
+            <div className="gallery_view_all" onClick={() => setFullView(true)}>
+              View all
+            </div>
+
+            <Image
+              alt="view_icon"
+              loading="lazy"
+              src={view}
+              className="gallery_view_icon"
+            />
+          </div>
+        )}
       </div>
-      <div className="gallery_development_info">
-        <div className="gallery_info_content">
-          <div className="gallery_info_column">
-            <div className="gallery_info_text">
-              In development. To learn more read our docs{" "}
+      {!fullView && (
+        <div className="gallery_development_info">
+          <div className="gallery_info_content">
+            <div className="gallery_info_column">
+              <div className="gallery_info_text">
+                In development. To learn more read our docs{" "}
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }
