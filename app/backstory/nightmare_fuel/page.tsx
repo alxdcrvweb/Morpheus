@@ -78,7 +78,7 @@ const Nightmare: NextPage = () => {
                   Chapter 1
                 </h1>
                 <div className="gatherer__box">
-                  <p className={"_littleText"}>
+                  <div className={"_littleText"}>
                     The Sleepers date modern Ayyon from the awakening of the{" "}
                     <span
                       onMouseEnter={() => handleMouseEnter("first1")}
@@ -94,8 +94,8 @@ const Nightmare: NextPage = () => {
                     . The Vigilants timeline, on the other hand, begins two
                     weeks earlier. The day of what is now known as Nightmare
                     Fuel.
-                  </p>
-                  <p className={"_littleText"}>
+                  </div>
+                  <div className={"_littleText"}>
                     It began when the people of Ayyon found it harder to wake up
                     {Array.from({ length: 5 }).map((_, i) => {
                       return <div key={i}>.</div>;
@@ -112,7 +112,7 @@ const Nightmare: NextPage = () => {
                     you could see sleeping animals or birds in the streets,
                     people in the subway fell asleep and could sleep until
                     closing time.
-                  </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -150,7 +150,7 @@ const Nightmare: NextPage = () => {
                   </svg>
                 </div>
                 <div className="third__box">
-                  <p className={"_littleText"}>
+                  <div className={"_littleText"}>
                     Time staggered from side to side. It was hard to tell
                     whether it was yesterday or tomorrow. City lunatics walked
                     the streets with placards saying that there was no tomorrow,
@@ -166,7 +166,7 @@ const Nightmare: NextPage = () => {
                     into a clinging nightmare, a dream from which you can&apos;t get
                     out because you just can&apos;t take that one step - everything
                     is too heavy.
-                  </p>
+                  </div>
                 </div>
               </div>
               <div className="third__image">
@@ -190,7 +190,7 @@ const Nightmare: NextPage = () => {
           </div>
           <div className="fifth">
             <div className="fifth__box">
-              <p className={"_littleText"}>
+              <div className={"_littleText"}>
                 It lasted exactly 300 hours. 300 hours of nightmare. 300 hours
                 that wiped out most of the planet&apos;s population, almost all the
                 flora and fauna, and set back humanity in development for
@@ -208,7 +208,7 @@ const Nightmare: NextPage = () => {
                   In the beginning there was a word and that word was - wake up.
                 </div>
                 <div className="fifth__box__wake">Wake up!</div>
-              </p>
+              </div>
             </div>
           </div>
           <div>
