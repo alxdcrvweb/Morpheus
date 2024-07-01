@@ -83,16 +83,10 @@ function GalleryComponent() {
           {gallery &&
             fullView &&
             gallery
-              .filter((_, i) => i > 5)
+              .filter((_, i) => i >= 5)
               .map((el, i) => {
                 return <GalleryImage el={el} i={i} key={i} />;
               })}
-          {/* {fullView &&
-            Array(emptyCards)
-              .fill(null)
-              .map((_, index) => (
-                <div key={index} className="gallery_placeholder" />
-              ))} */}
         </div>
         {!fullView && (
           <div className="gallery_footer">

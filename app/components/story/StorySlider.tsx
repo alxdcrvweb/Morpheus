@@ -28,7 +28,7 @@ const story = [
     description: "100 years after agreement",
   },
 ];
-const StoryChoose: FC = () => {
+const StorySlider: FC = () => {
   const router = useRouter();
 
   const slide = (dir: string) => {
@@ -56,4 +56,4 @@ const StoryChoose: FC = () => {
   );
 };
 
-export default StoryChoose;
+export default StorySlider;
