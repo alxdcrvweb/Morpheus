@@ -1,9 +1,9 @@
 import * as React from "react";
 import Image, { StaticImageData } from "next/image";
-import logo from "../../../public/logo.svg";
+import logo from "@/public/logo.svg";
 import { useConnect } from "@/store/useConnect";
 import { addressSlice } from "@/utils/common";
-import "../../../styles/profile.scss";
+import "@/styles/profile.scss";
 const GalleryProfile = ({
   mainImage,
   name,

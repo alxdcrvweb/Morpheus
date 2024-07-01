@@ -2,7 +2,7 @@
 
 import GalleryComponent from "../components/gallery/gallery";
 import GalleryProfile from "../components/gallery/galleryProfile";
-import "../../styles/gallery.scss";
+import "@/styles/gallery.scss";
 const GalleryPage = () => {
   return (
     <div className="gallery_page">

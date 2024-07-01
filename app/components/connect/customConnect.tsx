@@ -5,11 +5,11 @@ import { Button } from "./connectButton";
 import { useAccount } from "wagmi";
 import { useConnect } from "@/store/useConnect";
 import { useRouter, usePathname } from "next/navigation";
-import "../../../styles/connect.scss";
+import "@/styles/connect.scss";
 
 const CustomConnect = () => {
   const { address, setProvider } = useConnect();
-  const router = useRouter();  
+  const router = useRouter();
   const pathname = usePathname();
 
   useEffect(() => {
@@ -21,8 +21,10 @@ const CustomConnect = () => {
   return (
     <ConnectButton.Custom>
       {({ account, chain, openChainModal, authenticationStatus, mounted }) => {
+        // eslint-disable-next-line react-hooks/rules-of-hooks
         const { connector } = useAccount();
         const ready = mounted && authenticationStatus !== "loading";
+        // eslint-disable-next-line react-hooks/rules-of-hooks
         useEffect(() => {
           if (connector) {
             getProvider();

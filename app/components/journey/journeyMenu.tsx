@@ -1,9 +1,9 @@
 "use client";
 import React, { useMemo } from "react";
-import "../../../styles/journey.scss";
+import "@/styles/journey.scss";
 import { useJourney } from "@/store/useJourney";
 import classNames from "classnames";
-import journey from "../../../journey.json";
+import journey from "@/journey.json";
 
 const statsData = [
   { label: "All", value: 38 },

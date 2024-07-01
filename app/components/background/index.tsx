@@ -1,6 +1,6 @@
 "use client";
-import "../../../styles/globals.scss";
-import "../../../styles/layout.scss";
+import "@/styles/globals.scss";
+import "@/styles/layout.scss";
 import Image from "next/image";
 import background from "@/public/bg.png";
 import background2 from "@/public/bg_2.png";

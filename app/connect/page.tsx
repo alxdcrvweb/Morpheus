@@ -1,5 +1,5 @@
 import ConnectCard from "../components/connect/connectCard";
-import '../../styles/connect.scss'
+import '@/styles/connect.scss'
 const ConnectPage = () => {
   return (
     <div className="card_container">

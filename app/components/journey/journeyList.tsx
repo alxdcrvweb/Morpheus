@@ -1,7 +1,7 @@
 "use client";
-import "../../../styles/journey.scss";
+import "@/styles/journey.scss";
 import { useJourney } from "@/store/useJourney";
-import journey from "../../../journey.json";
+import journey from "@/journey.json";
 import Link from "next/link";
 import { useMemo } from "react";
 const JourneyList = () => {

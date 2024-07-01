@@ -1,10 +1,10 @@
 "use client";
 import cn from "classnames";
 import { FC, useEffect, useState } from "react";
-import "../../../../styles/audio.scss";
+import "@/styles/audio.scss";
 import Image from "next/image";
-import play from "../../../../public/player/play.svg";
-import pause from "../../../../public/player/pause.svg";
+import play from "@/public/player/play.svg";
+import pause from "@/public/player/pause.svg";
 
 const playlist = [
   "/music/sleeper.mp3",

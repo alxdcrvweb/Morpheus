@@ -1,11 +1,11 @@
 "use client";
 import * as React from "react";
-import "../../../styles/connect.scss";
+import "@/styles/connect.scss";
 import Image from "next/image";
-import logo from "../../../public/logo.svg";
-import card_image from "../../../public/connect/portal.png";
-import wallet from "../../../public/connect/wallet.svg";
-import farcaster from "../../../public/connect/farcaster.svg";
+import logo from "@/public/logo.svg";
+import card_image from "@/public/connect/portal.png";
+import wallet from "@/public/connect/wallet.svg";
+import farcaster from "@/public/connect/farcaster.svg";
 import CustomConnect from "./customConnect";
 import { SignInButton } from "@farcaster/auth-kit";
 import "@farcaster/auth-kit/styles.css";

@@ -58,7 +58,3 @@ export async function GET(request: NextRequest) {
     return new NextResponse("Error generating image", { status: 500 });
   }
 }
-
-export const config = {
-  runtime: "experimental-edge",
-};

@@ -1,5 +1,5 @@
 import GalleryOne from "@/app/components/gallery/galleryOne";
-import "../../../styles/gallery.scss";
+import "@/styles/gallery.scss";
 import { getFrameFlattened, Frame } from "frames.js";
 
 export async function generateMetadata(props: any) {

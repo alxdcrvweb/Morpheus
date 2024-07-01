@@ -1,10 +1,9 @@
 import { NextPage } from "next";
-import StorySlider from "../components/story/storySlider";
-import "../../styles/backstory.scss";
+import "@/styles/backstory.scss";
+import StorySlider from "../components/story/StorySlider";
 
 const Backstory: NextPage = () => {
-
-    return <section className="story">{<StorySlider />}</section>;
+  return <section className="story">{<StorySlider />}</section>;
 };
 
 export default Backstory;

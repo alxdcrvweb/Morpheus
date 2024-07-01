@@ -1,6 +1,6 @@
 import { FC } from "react";
 import Player from "@/app/components/footer/player";
-import "../../../styles/footer.scss";
+import "@/styles/footer.scss";
 import CustomConnect from "../connect/customConnect";
 //music player only, but could be more in future updates.
 

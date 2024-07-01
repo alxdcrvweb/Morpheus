@@ -1,13 +1,12 @@
 import * as React from "react";
-import "../../../styles/gallery.scss";
-import { IChar, IGallery, useGallery } from "@/store/useGallery";
+import "@/styles/gallery.scss";
+import { IChar, useGallery } from "@/store/useGallery";
 import { useConnect } from "@/store/useConnect";
 import axios from "axios";
 import { chainId } from "@/config/config";
-import logo from "../../../public/logo.svg";
-import view from "../../../public/gallery/view.svg";
+import logo from "@/public/logo.svg";
+import view from "@/public/gallery/view.svg";
 import Image from "next/image";
-import Link from "next/link";
 import classNames from "classnames";
 import GalleryImage from "./galleryImage";
 
@@ -83,16 +82,10 @@ function GalleryComponent() {
           {gallery &&
             fullView &&
             gallery
-              .filter((_, i) => i > 5)
+              .filter((_, i) => i >= 5)
               .map((el, i) => {
                 return <GalleryImage el={el} i={i} key={i} />;
               })}
-          {/* {fullView &&
-            Array(emptyCards)
-              .fill(null)
-              .map((_, index) => (
-                <div key={index} className="gallery_placeholder" />
-              ))} */}
         </div>
         {!fullView && (
           <div className="gallery_footer">

@@ -1,18 +1,17 @@
 "use client";
 import React, { useEffect, useMemo, useState } from "react";
 import classNames from "classnames";
-import "../../../styles/galleryOne.scss";
+import "@/styles/galleryOne.scss";
 import { addressSlice } from "@/utils/common";
 import { useGallery } from "@/store/useGallery";
 import { RotatingLines } from "react-loader-spinner";
 import Image from "next/image";
-import mainImage from "../../../public/gallery/profile.png";
-import story from "../../../public/gallery/story.png";
-import logo from "../../../public/logo.svg";
+import story from "@/public/gallery/story.png";
+import logo from "@/public/logo.svg";
 import GalleryProfile from "./galleryProfile";
-import chevron from "../../../public/chevron.svg";
+import chevron from "@/public/chevron.svg";
 import axios from "axios";
-import { indexer } from "@/app/api/nfts/route";
+import { backendUrl } from "@/app/api/nfts/route";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 const GalleryOne = ({ tokenId }: { tokenId: number }) => {
   const { oneChar, gallery, setOneChar } = useGallery();
@@ -43,7 +42,7 @@ const GalleryOne = ({ tokenId }: { tokenId: number }) => {
         //@ts-ignore
         setOneChar(gallery[i]);
       } else {
-        let res = await axios.get(indexer + "/api/token/" + tokenId);
+        let res = await axios.get(backendUrl + "/api/token/" + tokenId);
         //@ts-ignore
         setOneChar(res.data.token[0]);
       }

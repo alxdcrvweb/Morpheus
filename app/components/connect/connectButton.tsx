@@ -1,5 +1,5 @@
 import { useConnectModal } from "@rainbow-me/rainbowkit";
-import "../../../styles/connect.scss";
+import "@/styles/connect.scss";
 
 export const Button = () => {
   const { openConnectModal } = useConnectModal();

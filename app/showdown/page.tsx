@@ -1,8 +1,8 @@
 import React from "react";
 import stlye from "../styles/leaderboard.module.scss";
 import Image from "next/image";
-import logo from '../../public/showdown.svg'
-import '../../styles/showdown.scss'
+import logo from '@/public/showdown.svg'
+import '@/styles/showdown.scss'
 const Leaderboard: React.FC = () => {
     return (
         <div className={"leaderboard"}>

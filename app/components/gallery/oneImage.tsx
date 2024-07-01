@@ -1,5 +1,5 @@
 import Link from "next/link";
-import "../../../styles/gallery.scss";
+import "@/styles/gallery.scss";
 import { useState } from "react";
 import { RotatingLines } from "react-loader-spinner";
 

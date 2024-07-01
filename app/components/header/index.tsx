@@ -2,10 +2,10 @@
 import cn from "classnames";
 
 import Link from "next/link";
-import "../../../styles/header.scss";
+import "@/styles/header.scss";
 import Menu from "../../components/header/menu";
 import Image from "next/image";
-import logo from "../../../public/logo.svg";
+import logo from "@/public/logo.svg";
 import { useConnect } from "@/store/useConnect";
 import { addressSlice } from "@/utils/common";
 // import Index from "../footer/player/player";
