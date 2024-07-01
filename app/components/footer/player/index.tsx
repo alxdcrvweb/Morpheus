@@ -73,7 +73,10 @@ const Player: FC = () => {
   return (
     <>
       <div
-        className={cn("audio_start", init && "audio_start_active")}
+        className={cn(
+          "audio_start",
+          init ? "audio_start_active" : "audio_start_off"
+        )}
         onClick={() => {
           setMusicStatus(!musicStatus);
           setInit(true);
@@ -94,49 +97,42 @@ const Player: FC = () => {
           onClick={() => !musicStatus && setMusicStatus(!musicStatus)}
           className={cn("audio_open")}
         >
-          {
-            <Image
-              alt="play"
-              src={play}
-              className="audio_change_reverse"
-              onClick={() => {
-                if (activeTrack > 0) {
-                  activateMusic(playlist[activeTrack - 1]);
-                } else {
-                  activateMusic(playlist[playlist.length - 1]);
-                }
-              }}
-            />
-          }
+          <Image
+            alt="play"
+            src={play}
+            className="audio_change_reverse"
+            onClick={() => {
+              if (activeTrack > 0) {
+                activateMusic(playlist[activeTrack - 1]);
+              } else {
+                activateMusic(playlist[playlist.length - 1]);
+              }
+            }}
+          />
+
           <div className="audio_pause">
-            {!musicStatus ? (
-              <Image
-                src={play}
-                alt="play"
-                onClick={() => setMusicStatus(!musicStatus)}
-              />
-            ) : (
-              <Image
-                src={pause}
-                alt="pause"
-                onClick={() => setMusicStatus(!musicStatus)}
-              />
-            )}
-          </div>
-          {
             <Image
-              alt="next"
-              src={play}
-              className="audio_change"
+              src={pause}
+              alt="pause"
               onClick={() => {
-                if (activeTrack < playlist.length - 1) {
-                  activateMusic(playlist[activeTrack + 1]);
-                } else {
-                  activateMusic(playlist[0]);
-                }
+                setInit(false);
+                setMusicStatus(!musicStatus);
               }}
             />
-          }
+          </div>
+
+          <Image
+            alt="next"
+            src={play}
+            className="audio_change"
+            onClick={() => {
+              if (activeTrack < playlist.length - 1) {
+                activateMusic(playlist[activeTrack + 1]);
+              } else {
+                activateMusic(playlist[0]);
+              }
+            }}
+          />
         </div>
       </div>
     </>

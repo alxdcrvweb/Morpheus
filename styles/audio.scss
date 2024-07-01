@@ -50,24 +50,37 @@
     z-index: 10;
     transition: 1s ease all;
   }
+  &_start_off {
+    animation: show 1.5s ease forwards;
+
+  }
   &_start_active {
     width: 245px;
     height: 81px;
     transform: translateY(-30px);
     border-radius: 10px;
     opacity: 1;
-    animation: anim 1s ease forwards;
+    animation: fade 1s ease forwards;
+    pointer-events: none;
   }
   //audio_active
   &_active {
     opacity: 1;
   }
-  @keyframes anim {
+  @keyframes fade {
     0% {
       opacity: 1;
     }
     100% {
       opacity: 0;
+    }
+  }
+  @keyframes show {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
     }
   }
   // .audio_title

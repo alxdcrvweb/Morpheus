@@ -13,6 +13,7 @@ import chevron from "@/public/chevron.svg";
 import axios from "axios";
 import { backendUrl } from "@/app/api/nfts/route";
 import { CopyToClipboard } from "react-copy-to-clipboard";
+import BackButton from "./backButton";
 const GalleryOne = ({ tokenId }: { tokenId: number }) => {
   const { oneChar, gallery, setOneChar } = useGallery();
   const [show, setShow] = useState(false);
@@ -59,6 +60,7 @@ const GalleryOne = ({ tokenId }: { tokenId: number }) => {
     <div className="gallery__container__one">
       <div className="gallery__one">
         <div className="gallery__col">
+          <BackButton />
           <div>
             <GalleryProfile
               mainImage={"/api/image/?id=" + oneChar?.tokenId}
