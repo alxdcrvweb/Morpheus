@@ -165,22 +165,14 @@ const Agreement = () => {
                 <p className="_littleText">
                   After that, the clashes became more frequent. The survivors
                   first developed medications to keep them awake and keep their
-<<<<<<< HEAD
                   minds clear so they wouldn&apos;t hallucinate, and then they
-=======
-                  minds clear so they wouldn't hallucinate, and then they
->>>>>>> 64d74ea7a3f3f922ba1b41501dea6d6d499a0b26
                   developed mechanical implants that increased their resilience
                   tenfold. It was because of the methods of these two groups
                   that the names we know now - the Sleepers and the Vigilants -
                   stuck to them. The more there were clashes, the more the
                   people of Ayyon realized that they were starting to roll back
                   everything they had built with their hard work. By destroying
-<<<<<<< HEAD
                   each other&apos;s craft, they were making things worse for
-=======
-                  each other's craft, they were making things worse for
->>>>>>> 64d74ea7a3f3f922ba1b41501dea6d6d499a0b26
                   humanity. Despite the great difference in their views and
                   approaches to the future - they began peace talks.
                 </p>
@@ -232,11 +224,7 @@ const Agreement = () => {
                 </span>{" "}
                 - a pioneer of body modifications - came to the center of the
                 city day after day to talk to the First. To talk physically, not
-<<<<<<< HEAD
                 through mental whispers. It was the only time the First&apos;s voice
-=======
-                through mental whispers. It was the only time the First's voice
->>>>>>> 64d74ea7a3f3f922ba1b41501dea6d6d499a0b26
                 could be heard with your own ears.
               </div>{" "}
               <br />
