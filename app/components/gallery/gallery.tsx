@@ -10,9 +10,8 @@ import Image from "next/image";
 import classNames from "classnames";
 import GalleryImage from "./galleryImage";
 
-function GalleryComponent() {
+function GalleryComponent({ user, type }: { user?: string; type: string }) {
   const { gallery, setGallery } = useGallery();
-  const { address, warpcastUser } = useConnect();
   const [fullView, setFullView] = React.useState(false);
   const emptyCards = React.useMemo(() => {
     if (!gallery) return 5;
@@ -26,8 +25,8 @@ function GalleryComponent() {
   const getGallery = async () => {
     console.log(chainId);
     const params = {
-      address: address,
-      fid: warpcastUser?.fid,
+      address: (type == "address" || type == "ens") && user,
+      fid: type == "fid" && user,
     };
     //@ts-ignore
     const query = new URLSearchParams(params).toString();
@@ -42,13 +41,13 @@ function GalleryComponent() {
     }
   };
   React.useEffect(() => {
-    if (address || warpcastUser?.fid) {
+    if (user) {
       getGallery().then((gal: IChar[]) => {
         //@ts-ignore
         setGallery(gal);
       });
     }
-  }, [address, warpcastUser?.fid]);
+  }, [user]);
 
   return (
     <div

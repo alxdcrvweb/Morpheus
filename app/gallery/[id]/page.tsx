@@ -33,7 +33,9 @@ const GalleryOnePage = ({ params }: { params: { id: string } }) => {
 
   return (
     <div className="gallery_page">
-      <GalleryOne tokenId={Number(id)} />
+      <div className="gallery_scroll">
+        <GalleryOne tokenId={Number(id)} />
+      </div>
     </div>
   );
 };

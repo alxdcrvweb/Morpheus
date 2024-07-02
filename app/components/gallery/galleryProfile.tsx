@@ -6,12 +6,15 @@ import { addressSlice } from "@/utils/common";
 import "@/styles/profile.scss";
 const GalleryProfile = ({
   mainImage,
-  name,
+  user,
+  type,
+  userName,
 }: {
   mainImage: string;
-  name?: string;
+  user?: string;
+  type?: string;
+  userName?: string;
 }) => {
-  const { address } = useConnect();
   return (
     <>
       <div className="profile_container">
@@ -30,7 +33,11 @@ const GalleryProfile = ({
             alt="logo"
           />
           <div className="profile_username">
-            {name ? name : addressSlice(address)}
+            {type == "ens"
+              ? userName
+              : type == "fid"
+              ? user
+              : addressSlice(user)}
           </div>
           <div className="profile_message">Welcome to the Journey</div>
           <div className="profile_button">Ch. 2 Entrance</div>
