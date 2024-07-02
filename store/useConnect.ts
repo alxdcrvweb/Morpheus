@@ -15,16 +15,23 @@ export interface UserVerification {
 }
 interface ConnectState {
   address: string;
+  ens?: string;
   provider: any;
   warpcastUser?: UserVerification;
-  setProvider: (provider: { address: string; provider: any }) => void;
+  setProvider: (provider: {
+    address: string;
+    provider: any;
+    ens?: string;
+  }) => void;
   setWarpcastUser: (user: UserVerification) => void;
 }
 
 export const useConnect = create<ConnectState>()((set) => ({
   address: "",
+  ens: undefined,
   provider: undefined,
   warpcastUser: undefined,
-  setProvider: (a) => set(() => ({ address: a.address, provider: a.provider })),
+  setProvider: (a) =>
+    set(() => ({ address: a.address, provider: a.provider, ens: a.ens })),
   setWarpcastUser: (u) => set(() => ({ warpcastUser: u })),
 }));

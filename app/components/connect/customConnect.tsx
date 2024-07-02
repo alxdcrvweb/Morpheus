@@ -8,7 +8,7 @@ import { useRouter, usePathname } from "next/navigation";
 import "@/styles/connect.scss";
 
 const CustomConnect = () => {
-  const { address, setProvider } = useConnect();
+  const { address, setProvider} = useConnect();
   const router = useRouter();
   const pathname = usePathname();
 
@@ -32,10 +32,11 @@ const CustomConnect = () => {
         }, [connector]);
         const getProvider = async () => {
           try {
+            console.log(account.ensName)
             if (!address && connector && account) {
               const res = await connector.getProvider();
               console.log(res);
-              setProvider({ address: account.address, provider: res });
+              setProvider({ address: account.address, ens:account.ensName, provider: res });
             }
           } catch (e) {
             console.log(e);

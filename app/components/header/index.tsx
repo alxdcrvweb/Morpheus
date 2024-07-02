@@ -11,7 +11,8 @@ import { addressSlice } from "@/utils/common";
 // import Index from "../footer/player/player";
 
 const Header = () => {
-  const { address, warpcastUser } = useConnect();
+  const { address, warpcastUser, ens } = useConnect();
+  // console.log(ens)
   return (
     <header className={"header"}>
       <div className={"header__line"}>
@@ -50,7 +51,7 @@ const Header = () => {
                 }
               >
                 <button className={"wrapcast__connect"}>
-                  {!address ? "Connect" : addressSlice(address)}
+                  {!address ? "Connect" : ens ? ens : addressSlice(address)}
                 </button>
               </Link>
             )}

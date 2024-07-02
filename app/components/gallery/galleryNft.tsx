@@ -11,7 +11,7 @@ const GalleryNft = ({
   mainImage: string;
   name?: string;
 }) => {
-  const { address } = useConnect();
+  const { address, ens } = useConnect();
   return (
     <>
       <div className="profile_container">
@@ -30,7 +30,7 @@ const GalleryNft = ({
             alt="logo"
           />
           <div className="profile_username">
-            {name ? name : addressSlice(address)}
+            {name ? name : ens ? ens : addressSlice(address)}
           </div>
           <div className="profile_message">Welcome to the Journey</div>
           <div className="profile_button">Ch. 2 Entrance</div>
