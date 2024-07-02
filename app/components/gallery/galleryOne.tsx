@@ -64,8 +64,10 @@ const GalleryOne = ({ tokenId }: { tokenId: number }) => {
           <div>
             <GalleryProfile
               mainImage={"/api/image/?id=" + oneChar?.tokenId}
-              name={oneChar?.name}
+              userName={oneChar?.name}
+
             />
+            {/* {console.log(oneChar?.name)} */}
             <div className="gallery__loader__big">
               <RotatingLines
                 strokeColor="grey"

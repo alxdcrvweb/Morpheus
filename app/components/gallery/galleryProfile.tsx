@@ -33,7 +33,7 @@ const GalleryProfile = ({
             alt="logo"
           />
           <div className="profile_username">
-            {type == "ens"
+            {userName
               ? userName
               : type == "fid"
               ? user

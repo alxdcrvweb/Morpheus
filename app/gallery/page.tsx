@@ -12,7 +12,7 @@ const GalleryPage = () => {
       return { user: ens, type: "ens" };
     } else if (address) {
       return { user: address, type: "address" };
-    } else if (warpcastUser.fid) {
+    } else if (warpcastUser?.fid) {
       return { user: warpcastUser.fid.toString(), type: "fid" };
     }
   }, []);
@@ -23,10 +23,10 @@ const GalleryPage = () => {
         <GalleryProfile
           mainImage={"/gallery/profile.png"}
           userName={ens}
-          user={currentUser.user}
-          type={currentUser.type}
+          user={currentUser?.user}
+          type={currentUser?.type}
         />
-        <GalleryComponent user={currentUser.user} type={currentUser.type} />
+        <GalleryComponent user={currentUser?.user} type={currentUser?.type} />
       </div>
     </div>
   );
