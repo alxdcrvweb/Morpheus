@@ -6,7 +6,7 @@
     "image": "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
     "gated": true,
     "author": "text1",
-    "type": "Art"
+    "category": "Art"
   },
   {
     "title": "story2",
@@ -15,7 +15,7 @@
     "image": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
     "gated": false,
     "author": "text2",
-    "type": "Community"
+    "category": "Community"
   },
   {
     "title": "story3",
@@ -24,7 +24,7 @@
     "image": "https://images.unsplash.com/photo-1522770179533-24471fcdba45",
     "gated": true,
     "author": "text3",
-    "type": "Art"
+    "category": "Art"
   },
   {
     "title": "story4",
@@ -33,7 +33,7 @@
     "image": "https://cdn-img1.imgworlds.com/assets/e3873302-212a-4c3a-aab3-c3bee866903c.jpg?key=home-gallery",
     "gated": false,
     "author": "text4",
-    "type": "Tools"
+    "category": "Tools"
   },
   {
     "title": "story5",
@@ -42,7 +42,7 @@
     "image": "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0",
     "gated": true,
     "author": "text5",
-    "type": "Story"
+    "category": "Story"
   },
   {
     "title": "story6",
@@ -51,7 +51,7 @@
     "image": "https://images.unsplash.com/photo-1494173853739-c21f58b16055",
     "gated": false,
     "author": "text6",
-    "type": "Collabs"
+    "category": "Collabs"
   },
   {
     "title": "story7",
@@ -60,6 +60,6 @@
     "image": "https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg",
     "gated": true,
     "author": "text7",
-    "type": "Collabs"
+    "category": "Collabs"
   }
 ]

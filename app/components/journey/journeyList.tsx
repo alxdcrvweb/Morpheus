@@ -10,7 +10,7 @@ const JourneyList = () => {
     if (currentType == "Gated") {
       return journey.filter((el) => el.gated);
     } else if (currentType !== "All") {
-      return journey.filter((el) => el.type == currentType);
+      return journey.filter((el) => el.category == currentType);
     } else {
       return journey;
     }
@@ -29,7 +29,7 @@ const JourneyList = () => {
               key={story.title}
             >
               <div className="journey__el" key={i}>
-                <div className="journey__type">{story.type}</div>
+                <div className="journey__type">{story.category}</div>
                 <img src={story.image} className="journey__image" />
                 <div className="journey__text">{story.title}</div>
               </div>

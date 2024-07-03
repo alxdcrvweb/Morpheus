@@ -50,6 +50,22 @@
     right: 24px;
     width: calc(100vw - 48px);
   }
+  &__links {
+    width: 88px;
+    height: 35px;
+    display: flex;
+    margin-right: 20px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    background-color: #212121;
+    img {
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+      padding: 5px;
+    }
+  }
   // .header__line
   &__line {
     @media (max-width: ($md2+px)) {
@@ -192,6 +208,7 @@
   @media (max-width: 991px) {
     display: flex;
     flex-direction: row-reverse;
+    justify-content: flex-end;
     img {
       margin-right: 10px;
     }
@@ -213,7 +230,7 @@
   opacity: 1;
   position: relative;
   height: 35px;
-  width: 104px;
+  width: 210px;
   // .headerBurger__box
   &__box {
     width: 20px;

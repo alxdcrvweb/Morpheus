@@ -26,7 +26,7 @@ function JourneyMenu() {
       if (data.label == "All") {
         return journey.length;
       }
-      return journey.filter((el) => data.label == el.type).length;
+      return journey.filter((el) => data.label == el.category).length;
     });
   }, []);
   return (
@@ -54,7 +54,7 @@ function JourneyMenu() {
       <div className="journey__contribute">
         The page is open-source. Learn how to contribute to it{" "}
         <span>
-          <a href="">here</a>
+          <a href="https://github.com/adev-digital/Morpheus" target="_blank">here</a>
         </span>
       </div>
     </div>

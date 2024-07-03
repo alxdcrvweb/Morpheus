@@ -32,6 +32,17 @@ const Header = () => {
             pointerEvents: "auto",
           }}
         >
+          <div className="header__links">
+            <a
+              href="https://opensea.io/assets/base/0x670971dcb8e1a510253511427593007e074954b7/106"
+              target="_blank"
+            >
+              <img src="/opensea.svg" />
+            </a>
+            <a href="https://warpcast.com/~/channel/morpheus" target="_blank">
+              <img src="/farcaster.svg" />
+            </a>
+          </div>
           <div style={{ color: "white" }}>
             {warpcastUser ? (
               <a

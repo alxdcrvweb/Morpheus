@@ -7,7 +7,7 @@
 }
 .card {
   display: flex;
-  max-width: 225px;
+  max-width: 278px;
   flex-direction: column;
   font-size: 8px;
   color: #000;
@@ -35,7 +35,7 @@
 .card_logo {
   object-fit: auto;
   object-position: center;
-  width: 23px;
+  width: 29px;
   fill: #000;
   align-self: center;
   filter: invert(1);
@@ -45,7 +45,7 @@
   letter-spacing: 1.45px;
   margin-top: 5px;
   text-align: center;
-  font: 24px/100% "ApocLC", sans-serif;
+  font: 32px/100% "ApocLC", sans-serif;
 }
 
 .card_subtitle {
@@ -53,6 +53,7 @@
   letter-spacing: 0.5px;
   align-self: center;
   margin-top: 8px;
+  font-size: 12px;
 }
 
 .card_wallet {
@@ -96,9 +97,10 @@
 .card_wallet_connect {
   font: "ApocLC", sans-serif;
   flex-grow: 1;
+  font-size: 12px;
   color: white;
   flex-basis: auto;
-  margin-left: 23px;
+  margin-left: 50px;
 }
 .card_farcaster_connect {
   font: "ApocLC", sans-serif;
@@ -110,6 +112,7 @@
 .card_separator {
   color: #333;
   font: "ApocLC", sans-serif;
+  font-size: 10px;
   letter-spacing: 0.48px;
   align-self: center;
   margin-top: 6px;
