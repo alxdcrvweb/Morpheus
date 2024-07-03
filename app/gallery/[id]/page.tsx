@@ -1,9 +1,13 @@
+import { backendUrl } from "@/app/api/nfts/route";
 import GalleryOne from "@/app/components/gallery/galleryOne";
 import "@/styles/gallery.scss";
+import axios from "axios";
 import { getFrameFlattened, Frame } from "frames.js";
 
 export async function generateMetadata(props: any) {
   let { id } = props.params;
+  const res = await axios.get(backendUrl + "/api/token/" + id);
+  console.log(res.data.token.owner)
   let imageUrl = "https://mrphs.io/api/og?id=" + id;
   const initialFrame: Frame = {
     image: imageUrl,
@@ -18,6 +22,11 @@ export async function generateMetadata(props: any) {
         action: "link",
         label: "Profile",
         target: `https://mrphs.io/gallery/${id}`,
+      },
+      {
+        action: "link",
+        label: "Owner",
+        target: `https://mrphs.io/${res.data.token.owner}`,
       },
     ],
     imageAspectRatio: "1:1",
