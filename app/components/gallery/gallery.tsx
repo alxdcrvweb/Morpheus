@@ -106,7 +106,10 @@ function GalleryComponent({ user, type }: { user?: string; type: string }) {
           <div className="gallery_info_content">
             <div className="gallery_info_column">
               <div className="gallery_info_text">
-                In development. To learn more read our docs{" "}
+                In development. To learn more read our{" "}
+                <span>
+                  <a href="https://trello.com/b/9fZr2Gcc/morpheus" target="_blank">docs</a>
+                </span>{" "}
               </div>
             </div>
           </div>

@@ -14,11 +14,13 @@ import axios from "axios";
 import { backendUrl } from "@/app/api/nfts/route";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import BackButton from "./backButton";
+import Link from "next/link";
+import Web3 from "web3";
 const GalleryOne = ({ tokenId }: { tokenId: number }) => {
   const { oneChar, gallery, setOneChar } = useGallery();
   const [show, setShow] = useState(false);
   const [details, setDetails] = useState<any>({});
-
+  const [owner, setOwner] = useState('')
   const decor = useMemo(() => {
     return (
       details.mirage ? details.mirage : details.droids ? details.droids : "None"
@@ -27,13 +29,29 @@ const GalleryOne = ({ tokenId }: { tokenId: number }) => {
 
   useEffect(() => {
     if (oneChar?.metadata) {
+      getENSName(oneChar.owner);
       setDetails({});
       oneChar?.metadata?.map((el: any) => {
         setDetails((prev: any) => ({ ...prev, [el.trait_type]: el.value }));
       });
     }
   }, [oneChar]);
-
+  async function getENSName(address: string) {
+    const web3 = new Web3(
+      new Web3.providers.HttpProvider("https://eth.llamarpc.com")
+    );
+    try {
+      const ensName = await web3.eth.ens.getName(address);
+      console.log(ensName);
+      if (ensName) {
+        setOwner(ensName)
+      } else {
+        setOwner(address)
+      }
+    } catch (error) {
+      console.error(`Error: ${error.message}`);
+    }
+  }
   const checkOne = async () => {
     try {
       if (gallery && gallery.length > 0) {
@@ -65,7 +83,6 @@ const GalleryOne = ({ tokenId }: { tokenId: number }) => {
             <GalleryProfile
               mainImage={"/api/image/?id=" + oneChar?.tokenId}
               userName={oneChar?.name}
-
             />
             {/* {console.log(oneChar?.name)} */}
             <div className="gallery__loader__big">
@@ -85,13 +102,12 @@ const GalleryOne = ({ tokenId }: { tokenId: number }) => {
               <div className="gallery__stats__row">
                 <div>Owner</div>
                 <div className="gallery__stats__dots"></div>
-                <a
-                  href={`https://basescan.org/address/${oneChar?.owner}`}
-                  target="_blank"
+                <Link
+                  href={`/${owner}`}
                   className="gallery__stats__dots"
                 >
-                  {addressSlice(oneChar?.owner)}
-                </a>
+                  {owner}
+                </Link>
               </div>
               <div className="gallery__stats__row">
                 <div>Faction</div>

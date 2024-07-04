@@ -223,6 +223,13 @@
   align-items: center;
   margin: auto 0;
   font: 400 20px/97% "ApocLC", -apple-system, Roboto, Helvetica, sans-serif;
+  span {
+    a {
+      color: black;
+      text-decoration: underline;
+      margin-left: 6px;
+    }
+  }
 }
 @media (max-width: 991px) {
   .gallery_info_text {

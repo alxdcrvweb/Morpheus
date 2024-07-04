@@ -7,24 +7,17 @@ import play from "@/public/player/play.svg";
 import pause from "@/public/player/pause.svg";
 
 const playlist = [
-  "/music/sleeper.mp3",
-  // "/player/terminal.mp3",
-  "/music/vigilant.mp3",
-];
-
-//temporary solution
-const titles = ["VIGILANT OST", "SLEEPER OST"];
-
-//so the idea is to be able to add songs and change cover
-// we need a more complex object to do this
-
-//example object
-const playlist_2 = [
   {
-    path: "/player/awake.mp3",
-    title: "VIGILAN OST",
+    path: "/player/music/vigilant.mp3",
+    title: "VIGILANT OST",
     artist: "Morpheus Team",
-    cover: "/public/music/vigilant.png",
+    cover: "/player/playerBackground.png",
+  },
+  {
+    path: "/player/music/sleeper.mp3",
+    title: "SLEEPER OST",
+    artist: "Morpheus Team",
+    cover: "/player/playerBackground.png",
   },
 ];
 
@@ -37,7 +30,7 @@ const Player: FC = () => {
   const [musicStatus, setMusicStatus] = useState(false);
   useEffect(() => {
     if (musicStatus) {
-      activateMusic(playlist[activeTrack]);
+      activateMusic(playlist[activeTrack].path);
     } else {
       activateMusic("");
     }
@@ -50,16 +43,16 @@ const Player: FC = () => {
       localStorage.setItem("audio", "false");
       return;
     }
-    if (currentTrack == playlist[activeTrack] && music) {
+    if (currentTrack == playlist[activeTrack].path && music) {
       music.play();
       music.loop = true;
       music.volume = 0.2;
       localStorage.setItem("audio", "true");
-    } else if (music && currentTrack !== playlist[activeTrack]) {
+    } else if (music && currentTrack !== playlist[activeTrack].path) {
       music.src = playlist[activeTrack + 1]
-        ? playlist[activeTrack + 1]
-        : playlist[0];
-      const index = playlist.findIndex((el) => el == currentTrack);
+        ? playlist[activeTrack + 1].path
+        : playlist[0].path;
+      const index = playlist.findIndex((el) => el.path == currentTrack);
       setMusicStatus(true);
       setActiveTrack(index);
       music.play();
@@ -68,7 +61,7 @@ const Player: FC = () => {
     }
   };
   useEffect(() => {
-    setMusic(new Audio(playlist[0]));
+    setMusic(new Audio(playlist[0].path));
   }, []);
   return (
     <>
@@ -84,14 +77,17 @@ const Player: FC = () => {
       >
         {!init && <Image src={play} alt="play" />}
       </div>
-      <div className={cn("audio", init && "audio_active")}>
+      <div
+        className={cn("audio", init && "audio_active")}
+        style={{ backgroundImage: `url(${playlist[activeTrack].cover})` }}
+      >
         <div>
           <span
             className={cn("audio_title", musicStatus && "audio_title_changed")}
           >
-            {titles[activeTrack]}
+            {playlist[activeTrack].title}
           </span>
-          <div className="audio_author">Morpheus team</div>
+          <div className="audio_author">{playlist[activeTrack].artist}</div>
         </div>
         <div
           onClick={() => !musicStatus && setMusicStatus(!musicStatus)}
@@ -103,9 +99,9 @@ const Player: FC = () => {
             className="audio_change_reverse"
             onClick={() => {
               if (activeTrack > 0) {
-                activateMusic(playlist[activeTrack - 1]);
+                activateMusic(playlist[activeTrack - 1].path);
               } else {
-                activateMusic(playlist[playlist.length - 1]);
+                activateMusic(playlist[playlist.length - 1].path);
               }
             }}
           />
@@ -127,9 +123,9 @@ const Player: FC = () => {
             className="audio_change"
             onClick={() => {
               if (activeTrack < playlist.length - 1) {
-                activateMusic(playlist[activeTrack + 1]);
+                activateMusic(playlist[activeTrack + 1].path);
               } else {
-                activateMusic(playlist[0]);
+                activateMusic(playlist[0].path);
               }
             }}
           />

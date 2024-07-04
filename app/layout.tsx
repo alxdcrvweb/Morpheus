@@ -17,9 +17,9 @@ export default function RootLayout({
       <body>
         <ConnectProvider>
           <Index />
-            <Header />
-              <main>{children}</main>
-            <Footer />
+          <Header />
+          <main>{children}</main>
+          <Footer />
         </ConnectProvider>
       </body>
     </html>

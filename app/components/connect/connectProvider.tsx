@@ -15,6 +15,7 @@ export default function ConnectProvider({
   const config = getDefaultConfig({
     appName: "Morpheus App",
     projectId: "8271a5dee2c5981640ad5d12b20132af",
+    //@ts-ignore
     chains: [base],
     ssr: true,
   });

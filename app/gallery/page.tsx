@@ -15,7 +15,7 @@ const GalleryPage = () => {
     } else if (warpcastUser?.fid) {
       return { user: warpcastUser.fid.toString(), type: "fid" };
     }
-  }, []);
+  }, [address, warpcastUser, ens]);
   return (
     <div className="gallery_page">
       <div className="gallery_scroll">
