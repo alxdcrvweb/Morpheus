@@ -10,7 +10,7 @@ export const addressSlice = (address: string | undefined) => {
 export const ipfsGatewayById = (id: string) => {
   // console.log(cid)
   let com = "img-quality=80&img-width=640&img-height=700&";
-  const token = process.env.PINATA_GATEWAY_TOKEN;
+  const token = process.env.PINATA_GATEWAY;
   // let modifiedId = Number(id) > 400 ? Number(id) - 400 : id
   let cid =
     Number(id) > 400 && Number(id) <= 702
