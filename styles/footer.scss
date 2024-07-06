@@ -1,0 +1,12 @@
+.footer {
+  width: 100vw;
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  top: auto;
+}
+.footer_opacity {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}

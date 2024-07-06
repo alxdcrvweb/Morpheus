@@ -1,0 +1,47 @@
+[
+  {
+    "title": "Nightmare Fuel",
+    "description": "First chapter",
+    "link": "https://mrphs.io/backstory/nightmare_fuel",
+    "image": "/backstory/nightmare.png",
+    "gated": false,
+    "author": "Morpheus Team",
+    "category": "Story"
+  },
+  {
+    "title": "Agreement",
+    "description": "Second chapter",
+    "link": "https://mrphs.io/backstory/agreement",
+    "image": "/backstory/agreement.png",
+    "gated": false,
+    "author": "Morpheus Team",
+    "category": "Story"
+  },
+  {
+    "title": "Modern Days",
+    "description": "Last backstory chapter",
+    "link": "https://mrphs.io/backstory/modern",
+    "image": "/backstory/ayyon.png",
+    "gated": false,
+    "author": "Morpheus Team",
+    "category": "Story"
+  },
+  {
+    "title": "Holder Chat",
+    "description": "Chat in Warpcaster",
+    "link": "https://warpcast.com/~/group/0pifJ4ooB5b-m6xkYHuImg",
+    "image": "https://media.decentralized-content.com/-/rs:fit:640:640/aHR0cHM6Ly9tYWdpYy5kZWNlbnRyYWxpemVkLWNvbnRlbnQuY29tL2lwZnMvYmFmeWJlaWZudWpvZHp0bXQycjRiamJvdmtjM3doY3ZiYnZwbTJydzNxM2x1cHN0dGwydWUyZW43NHk",
+    "gated": true,
+    "author": "Morpheus Team",
+    "category": "Community"
+  },
+  {
+    "title": "Warpcaster Channel",
+    "description": "Community",
+    "link": "https://warpcast.com/~/channel/morpheus",
+    "image": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/3f8504f1-0b14-4e0a-4787-e440dfbbe000/original",
+    "gated": false,
+    "author": "@decentral-think",
+    "category": "Community"
+  }
+]
