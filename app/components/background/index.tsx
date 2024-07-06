@@ -7,7 +7,7 @@ import background2 from "@/public/background/bg_2.png";
 
 const Index = () => {
   return (
-    <div className="container">
+    <div className="bg">
       {/* <Image className={"bg"} src={background} alt={"background"} fill={true} />
       <Image
         className={"bg"}
