@@ -4,6 +4,7 @@ import { useJourney } from "@/store/useJourney";
 import journey from "@/journey.json";
 import Link from "next/link";
 import { useMemo } from "react";
+
 const JourneyList = () => {
   const { currentType } = useJourney();
   const journeyFilter = useMemo(() => {
@@ -30,8 +31,10 @@ const JourneyList = () => {
             >
               <div className="journey__el" key={i}>
                 <div className="journey__type">{story.category}</div>
-                <img src={story.image} className="journey__image" />
+                <img src={story.image} className="journey__image" alt={story.title} />
                 <div className="journey__text">{story.title}</div>
+                <div className="journey__author">{story.author}</div>
+
               </div>
             </Link>
           );

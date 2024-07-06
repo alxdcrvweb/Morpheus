@@ -9,6 +9,8 @@ import logo from "@/public/logo.svg";
 import { useConnect } from "@/store/useConnect";
 import { addressSlice } from "@/utils/common";
 // import Index from "../footer/player/player";
+import opensea from "@/public/opensea.svg";
+import farcaster from "@/public/farcaster.svg";
 
 const Header = () => {
   const { address, warpcastUser, ens } = useConnect();
@@ -34,13 +36,13 @@ const Header = () => {
         >
           <div className="header__links">
             <a
-              href="https://opensea.io/assets/base/0x670971dcb8e1a510253511427593007e074954b7/106"
+              href="https://opensea.io/collection/morpheus-pfp"
               target="_blank"
             >
-              <img src="/opensea.svg" />
+              <Image alt="opensea" src={opensea} />
             </a>
             <a href="https://warpcast.com/~/channel/morpheus" target="_blank">
-              <img src="/farcaster.svg" />
+              <Image alt="farcaster" src={farcaster} />
             </a>
           </div>
           <div style={{ color: "white" }}>
