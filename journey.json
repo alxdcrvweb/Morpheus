@@ -1,65 +1,47 @@
 [
   {
-    "title": "story1",
-    "description": "123",
-    "link": "https://google.com",
+    "title": "Nightmare Fuel",
+    "description": "First chapter",
+    "link": "https://mrphs.io/backstory/nightmare_fuel",
     "image": "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
-    "gated": true,
-    "author": "text1",
-    "category": "Art"
-  },
-  {
-    "title": "story2",
-    "description": "123",
-    "link": "/story2",
-    "image": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
     "gated": false,
-    "author": "text2",
-    "category": "Community"
-  },
-  {
-    "title": "story3",
-    "description": "123",
-    "link": "https://google.com",
-    "image": "https://images.unsplash.com/photo-1522770179533-24471fcdba45",
-    "gated": true,
-    "author": "text3",
-    "category": "Art"
-  },
-  {
-    "title": "story4",
-    "description": "123",
-    "link": "/story4",
-    "image": "https://cdn-img1.imgworlds.com/assets/e3873302-212a-4c3a-aab3-c3bee866903c.jpg?key=home-gallery",
-    "gated": false,
-    "author": "text4",
-    "category": "Tools"
-  },
-  {
-    "title": "story5",
-    "description": "123",
-    "link": "https://google.com",
-    "image": "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0",
-    "gated": true,
-    "author": "text5",
+    "author": "Morpheus Team",
     "category": "Story"
   },
   {
-    "title": "story6",
-    "description": "123",
-    "link": "/story6",
-    "image": "https://images.unsplash.com/photo-1494173853739-c21f58b16055",
+    "title": "Agreement",
+    "description": "Second chapter",
+    "link": "https://mrphs.io/backstory/agreement",
+    "image": "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
     "gated": false,
-    "author": "text6",
-    "category": "Collabs"
+    "author": "Morpheus Team",
+    "category": "Story"
   },
   {
-    "title": "story7",
-    "description": "123",
-    "link": "https://google.com",
-    "image": "https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg",
+    "title": "Modern Days",
+    "description": "Last backstory chapter",
+    "link": "https://mrphs.io/backstory/modern",
+    "image": "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
+    "gated": false,
+    "author": "Morpheus Team",
+    "category": "Story"
+  },
+  {
+    "title": "Holder Chat",
+    "description": "Chat in Warpcaster",
+    "link": "https://warpcast.com/~/group/0pifJ4ooB5b-m6xkYHuImg",
+    "image": "https://media.decentralized-content.com/-/rs:fit:640:640/aHR0cHM6Ly9tYWdpYy5kZWNlbnRyYWxpemVkLWNvbnRlbnQuY29tL2lwZnMvYmFmeWJlaWZudWpvZHp0bXQycjRiamJvdmtjM3doY3ZiYnZwbTJydzNxM2x1cHN0dGwydWUyZW43NHk",
     "gated": true,
-    "author": "text7",
-    "category": "Collabs"
+    "author": "Morpheus Team",
+    "category": "Community"
+  },
+  {
+    "title": "Warpcaster Channel",
+    "description": "Community",
+    "link": "https://mrphs.io/backstory/modern",
+    "image": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/3f8504f1-0b14-4e0a-4787-e440dfbbe000/original",
+    "gated": false,
+    "author": "@decentral-think",
+    "category": "Community"
   }
 ]
