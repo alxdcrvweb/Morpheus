@@ -23,7 +23,7 @@ export async function GET(request: NextRequest) {
   };
 
   try {
-    const imageUrl = `https://www.mrphs.io/api/getNftById?id=${id}`;
+    const imageUrl = `https://www.mrphs.io/api/image?id=${id}`;
     
     return new ImageResponse(
       (

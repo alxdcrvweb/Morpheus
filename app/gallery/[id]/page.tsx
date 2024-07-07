@@ -7,7 +7,6 @@ import { getFrameFlattened, Frame } from "frames.js";
 export async function generateMetadata(props: any) {
   let { id } = props.params;
   const res = await axios.get(backendUrl + "/api/token/" + id);
-  console.log(res.data.token.owner)
   let imageUrl = "https://mrphs.io/api/og?id=" + id;
   const initialFrame: Frame = {
     image: imageUrl,
