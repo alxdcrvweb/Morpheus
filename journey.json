@@ -3,7 +3,7 @@
     "title": "Nightmare Fuel",
     "description": "First chapter",
     "link": "https://mrphs.io/backstory/nightmare_fuel",
-    "image": "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
+    "image": "/backstory/nightmare.png",
     "gated": false,
     "author": "Morpheus Team",
     "category": "Story"
@@ -12,7 +12,7 @@
     "title": "Agreement",
     "description": "Second chapter",
     "link": "https://mrphs.io/backstory/agreement",
-    "image": "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
+    "image": "/backstory/agreement.png",
     "gated": false,
     "author": "Morpheus Team",
     "category": "Story"
@@ -21,7 +21,7 @@
     "title": "Modern Days",
     "description": "Last backstory chapter",
     "link": "https://mrphs.io/backstory/modern",
-    "image": "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
+    "image": "/backstory/ayyon.png",
     "gated": false,
     "author": "Morpheus Team",
     "category": "Story"
@@ -38,7 +38,7 @@
   {
     "title": "Warpcaster Channel",
     "description": "Community",
-    "link": "https://mrphs.io/backstory/modern",
+    "link": "https://warpcast.com/~/channel/morpheus",
     "image": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/3f8504f1-0b14-4e0a-4787-e440dfbbe000/original",
     "gated": false,
     "author": "@decentral-think",
