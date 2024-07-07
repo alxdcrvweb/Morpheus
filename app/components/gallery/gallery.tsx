@@ -41,6 +41,7 @@ function GalleryComponent({ user, type }: { user?: string; type: string }) {
     }
   };
   React.useEffect(() => {
+    console.log(user)
     if (user) {
       getGallery().then((gal: IChar[]) => {
         //@ts-ignore
