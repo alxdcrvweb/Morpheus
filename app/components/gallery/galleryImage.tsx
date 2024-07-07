@@ -9,8 +9,6 @@ const GalleryImage = ({ el, i }: { el: IChar; i: number }) => {
     <Link href={`/gallery/${el.tokenId}`}>
       <img
         alt={el.tokenId.toString()}
-        width={156}
-        height={183}
         src={"/api/image?id=" + el.tokenId}
         className={classNames("gallery_image")}
       />
