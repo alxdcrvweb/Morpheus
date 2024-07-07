@@ -7,13 +7,11 @@ import { useState } from "react";
 const GalleryImage = ({ el, i }: { el: IChar; i: number }) => {
   return (
     <Link href={`/gallery/${el.tokenId}`}>
-      <Image
+      <img
         alt={el.tokenId.toString()}
         width={156}
         height={183}
         src={"/api/image?id=" + el.tokenId}
-        placeholder='empty'
-        blurDataURL="/gallery/profile.png"
         className={classNames("gallery_image")}
       />
     </Link>
