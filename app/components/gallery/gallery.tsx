@@ -45,6 +45,7 @@ function GalleryComponent({ user, type }: { user?: string; type: string }) {
     if (user) {
       getGallery().then((gal: IChar[]) => {
         //@ts-ignore
+        console.log("gallery", gal)
         setGallery(gal);
       });
     }
