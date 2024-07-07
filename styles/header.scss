@@ -65,6 +65,9 @@
       cursor: pointer;
       padding: 5px;
     }
+    @media (max-width: ($md2+px)) {
+      margin-right: 10px;
+    }
   }
   // .header__line
   &__line {
