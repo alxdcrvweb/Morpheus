@@ -26,7 +26,7 @@
     @include adaptiv-value("row-gap", 270, 0, 1);
   }
   @media (max-width: (768px)) {
-    padding: 100px 0px;
+    padding: 100px 10px;
     height: 100vh;
   }
 }

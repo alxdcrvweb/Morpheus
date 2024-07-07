@@ -32,7 +32,9 @@ const Header = () => {
             <div>Menu</div>
           </div>
 
-          <Image style={{ marginTop: "7px" }} src={logo} alt={"Logo"} />
+          <Link href={"/"}>
+            <Image style={{ marginTop: "7px" }} src={logo} alt={"Logo"} />
+          </Link>
         </div>
         <Menu />
         <div

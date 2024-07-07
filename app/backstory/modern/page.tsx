@@ -266,7 +266,7 @@ const Modern: NextPage = () => {
                         "Gatherer",
                         "/backstory/modern/Gatherer.png",
                         prev
-                      )}
+                      )} {" "}
                     </span>
                     is now. Nominally there were no witnesses of harm from them.
                     So either there was no harm - or no surviving witnesses,
@@ -280,7 +280,7 @@ const Modern: NextPage = () => {
                   times before the{" "}
                   <span>
                     <Link href="/backstory/nightmare_fuel">Nightmare Fuel</Link>
-                  </span>{" "}
+                  </span>
                   . At least now there was a warm, comforting existence - as
                   wild as it would have looked from the people of the past.
                 </div>
