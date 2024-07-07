@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useConnect } from "@/store/useConnect";
 
-const links = [
+export const links = [
   {
     title: "Journey",
     link: "/journey",

@@ -11,20 +11,28 @@ import { addressSlice } from "@/utils/common";
 // import Index from "../footer/player/player";
 import opensea from "@/public/opensea.svg";
 import farcaster from "@/public/farcaster.svg";
+import { useState } from "react";
+import HeaderMobileMenu from "./mobileMenu";
 
 const Header = () => {
   const { address, warpcastUser, ens } = useConnect();
-  // console.log(ens)
+  const [openMenu, setOpenMenu] = useState(false);
   return (
     <header className={"header"}>
+      {openMenu && <HeaderMobileMenu setOpenMenu={setOpenMenu} />}
+
       <div className={"header__line"}>
         <div className={"headerBurger"}>
-          <div className={cn("headerBurger__box")}>
+          <div
+            className={cn("headerBurger__box")}
+            onClick={() => {
+              setOpenMenu(true);
+            }}
+          >
             <div>Menu</div>
           </div>
 
           <Image style={{ marginTop: "7px" }} src={logo} alt={"Logo"} />
-          {/*<Index />*/}
         </div>
         <Menu />
         <div
@@ -71,10 +79,6 @@ const Header = () => {
           </div>
         </div>
       </div>
-      {/* <HeaderMenu
-        openMenu={openMenu}
-        closeMenuHandler={setOpenMenu}
-      /> */}
     </header>
   );
 };
