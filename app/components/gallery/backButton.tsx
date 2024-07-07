@@ -6,7 +6,7 @@ const BackButton = () => {
     <div
       className="back"
       onClick={() => {
-        router.push("/gallery");
+        router.back()
       }}
       style={{ zIndex: 100000 }}
     >
