@@ -8,6 +8,7 @@ export async function generateMetadata(props: any) {
   let { id } = props.params;
   const res = await axios.get(backendUrl + "/api/token/" + id);
   let imageUrl = "https://mrphs.io/api/og?id=" + id;
+  // console.log(res.data.token[0].owner)
   const initialFrame: Frame = {
     image: imageUrl,
     version: "vNext",
@@ -25,7 +26,7 @@ export async function generateMetadata(props: any) {
       {
         action: "link",
         label: "Owner",
-        target: `https://mrphs.io/${res.data.token.owner}`,
+        target: `https://mrphs.io/${res.data.token[0].owner}`,
       },
     ],
     imageAspectRatio: "1:1",
