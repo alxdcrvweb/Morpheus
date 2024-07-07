@@ -18,6 +18,7 @@ const UserPage = () => {
     const web3 = new Web3(
       new Web3.providers.HttpProvider("https://eth.llamarpc.com")
     );
+    console.log(web3)
     if (isAddress(address)) {
       setUser(address);
       setType("address");
