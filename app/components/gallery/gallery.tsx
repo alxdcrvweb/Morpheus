@@ -23,7 +23,7 @@ function GalleryComponent({ user, type }: { user?: string; type: string }) {
     }
   }, [gallery]);
   const getGallery = async () => {
-    console.log(chainId);
+    console.log(chainId, type, user);
     const params = {
       address: (type == "address" || type == "ens") && user,
       fid: type == "fid" && user,
@@ -41,11 +41,11 @@ function GalleryComponent({ user, type }: { user?: string; type: string }) {
     }
   };
   React.useEffect(() => {
-    console.log(user)
+    console.log(user);
     if (user) {
       getGallery().then((gal: IChar[]) => {
         //@ts-ignore
-        console.log("gallery", gal)
+        console.log("gallery", gal);
         setGallery(gal);
       });
     }
@@ -110,7 +110,12 @@ function GalleryComponent({ user, type }: { user?: string; type: string }) {
               <div className="gallery_info_text">
                 In development. To learn more read our{" "}
                 <span>
-                  <a href="https://trello.com/b/9fZr2Gcc/morpheus" target="_blank">docs</a>
+                  <a
+                    href="https://trello.com/b/9fZr2Gcc/morpheus"
+                    target="_blank"
+                  >
+                    docs
+                  </a>
                 </span>{" "}
               </div>
             </div>
