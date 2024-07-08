@@ -165,7 +165,7 @@ const GalleryOne = ({ tokenId }: { tokenId: number }) => {
             </div>
             <div className="gallery__buttons">
               <CopyToClipboard
-                text={`https://mrhps.io/gallery/${oneChar?.tokenId}`}
+                text={`https://mrphs.io/gallery/${oneChar?.tokenId}`}
               >
                 <div className="gallery__link">Share as Frame</div>
               </CopyToClipboard>
