@@ -10,46 +10,27 @@ import Image from "next/image";
 import classNames from "classnames";
 import GalleryImage from "./galleryImage";
 
-function GalleryComponent({ user, type }: { user?: string; type: string }) {
-  const { gallery, setGallery } = useGallery();
+function GalleryComponent({ user, type }: { user?: boolean; type: string }) {
+  const { myGallery, holderGallery } = useGallery();
+  const currentGallery = React.useMemo(() => {
+    if (user && holderGallery.length > 0) {
+      return holderGallery;
+    }
+    if (!user && myGallery.length > 0) {
+      return myGallery;
+    }
+    return [];
+  }, [myGallery, holderGallery, user]);
   const [fullView, setFullView] = React.useState(false);
   const emptyCards = React.useMemo(() => {
-    if (!gallery) return 5;
-    if (gallery.length > 5) {
+    if (!currentGallery) return 5;
+    if (currentGallery.length > 5) {
       return 0;
     }
-    if (gallery.length <= 5) {
-      return 5 - gallery.length;
+    if (currentGallery.length <= 5) {
+      return 5 - currentGallery.length;
     }
-  }, [gallery]);
-  const getGallery = async () => {
-    console.log(chainId, type, user);
-    const params = {
-      address: (type == "address" || type == "ens") && user,
-      fid: type == "fid" && user,
-    };
-    //@ts-ignore
-    const query = new URLSearchParams(params).toString();
-
-    try {
-      const res = await axios.get("/api/nfts?" + query);
-      console.log(res);
-
-      return res.data;
-    } catch (e) {
-      console.log(e);
-    }
-  };
-  React.useEffect(() => {
-    console.log(user);
-    if (user) {
-      getGallery().then((gal: IChar[]) => {
-        //@ts-ignore
-        console.log("gallery", gal);
-        setGallery(gal);
-      });
-    }
-  }, [user]);
+  }, [currentGallery]);
 
   return (
     <div
@@ -60,7 +41,9 @@ function GalleryComponent({ user, type }: { user?: string; type: string }) {
     >
       <div className="gallery_main_content">
         <div className="gallery_header">
-          <div className="gallery_title">Morpheus: {gallery?.length}</div>
+          <div className="gallery_title">
+            Morpheus: {currentGallery?.length}
+          </div>
           <Image
             alt="logo"
             loading="lazy"
@@ -69,8 +52,8 @@ function GalleryComponent({ user, type }: { user?: string; type: string }) {
           />
         </div>
         <div className="gallery">
-          {gallery &&
-            gallery
+          {currentGallery &&
+            currentGallery
               .filter((_, i) => i < 5)
               .map((el, i) => {
                 return <GalleryImage el={el} i={i} key={i} />;
@@ -80,28 +63,30 @@ function GalleryComponent({ user, type }: { user?: string; type: string }) {
             .map((_, index) => (
               <div key={index} className="gallery_placeholder" />
             ))}
-          {gallery &&
+          {currentGallery &&
             fullView &&
-            gallery
+            currentGallery
               .filter((_, i) => i >= 5)
               .map((el, i) => {
                 return <GalleryImage el={el} i={i} key={i} />;
               })}
         </div>
-        {!fullView && (
-          <div className="gallery_footer">
-            <div className="gallery_view_all" onClick={() => setFullView(true)}>
-              View all
-            </div>
 
-            <Image
-              alt="view_icon"
-              loading="lazy"
-              src={view}
-              className="gallery_view_icon"
-            />
+        <div className={!fullView ? "gallery_footer" : "gallery_footer_active"}>
+          <div
+            className="gallery_view_all"
+            onClick={() => setFullView(!fullView)}
+          >
+            {!fullView ? "View all" : "Hide"}
           </div>
-        )}
+
+          <Image
+            alt="view_icon"
+            loading="lazy"
+            src={view}
+            className="gallery_view_icon"
+          />
+        </div>
       </div>
       {!fullView && (
         <div className="gallery_development_info">

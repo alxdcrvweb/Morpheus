@@ -26,7 +26,7 @@ const GalleryPage = () => {
           user={currentUser?.user}
           type={currentUser?.type}
         />
-        <GalleryComponent user={address} type={currentUser?.type} />
+        <GalleryComponent user={false} type={currentUser?.type} />
       </div>
     </div>
   );

@@ -14,15 +14,20 @@ export interface IChar {
   ];
 }
 export interface IGallery {
-  gallery?: IChar[];
+  myGallery?: IChar[];
+  holderGallery?: IChar[];
   oneChar?: IChar;
-  setGallery?: (g: IChar[]) => void;
+  setMyGallery?: (g: IChar[]) => void;
+  setHolderGallery?: (g: IChar[]) => void;
+
   setOneChar?: (g: IChar) => void;
 }
 
 export const useGallery = create<IGallery>()((set) => ({
-  gallery: [],
+  myGallery: [],
+  holderGallery: [],
   oneChar: undefined,
   setOneChar: (u: IChar) => set(() => ({ oneChar: u })),
-  setGallery: (u: IChar[]) => set(() => ({ gallery: u })),
+  setMyGallery: (u: IChar[]) => set(() => ({ myGallery: u })),
+  setHolderGallery: (u: IChar[]) => set(() => ({ holderGallery: u })),
 }));
