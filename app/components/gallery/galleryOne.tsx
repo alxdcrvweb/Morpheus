@@ -171,7 +171,7 @@ const GalleryOne = ({ tokenId }: { tokenId: number }) => {
             </div>
             <div className="gallery__buttons">
               <a
-                href={`https://warpcast.com/~/compose?text=Morph#${oneChar?.tokenId}&embeds[]=https://mrhps.io/gallery/${oneChar?.tokenId}`}
+                href={`https://warpcast.com/~/compose?text=Morph#${oneChar?.tokenId}&embeds[]=https://mrphs.io/gallery/${oneChar?.tokenId}`}
                 target="_blank"
               >
                 <div className="gallery__link">Share as Frame</div>
