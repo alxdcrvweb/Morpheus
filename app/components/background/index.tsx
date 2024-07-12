@@ -5,7 +5,7 @@ import "@/styles/layout.scss";
 const Index = () => {
   return (
     <div className="bg">
-      <video preload="auto" loop autoPlay muted className="video">
+      <video preload="auto" loop autoPlay muted playsInline className="video">
         <source src="/background/bg_video.mp4" type="video/mp4"></source>
       </video>
     </div>
