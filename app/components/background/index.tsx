@@ -6,7 +6,7 @@ const Index = () => {
   return (
     <div className="bg">
       <video preload="auto" loop autoPlay muted className="video">
-        <source src="/background/bg_video.webm" type="video/webm"></source>
+        <source src="/background/bg_video.mp4" type="video/mp4"></source>
       </video>
     </div>
   );
