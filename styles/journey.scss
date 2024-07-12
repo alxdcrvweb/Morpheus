@@ -69,6 +69,7 @@
     img {
       margin-bottom: 10px;
     }
+    // journey__gated_active
     &_active {
       opacity: 1 !important;
     }
@@ -91,22 +92,24 @@
     width: 629px;
   }
   &__el {
-    &:hover {
-      .journey__text {
-        opacity: 1;
-      }
-      .journey__gated {
-        opacity: 1;
-      }
-      .journey__author {
-        opacity: 1;
-      }
-      .journey__type {
-        z-index: 1;
-        opacity: 1;
-      }
-      .journey__image {
-        filter: brightness(0.3);
+    @media (min-width: 880px) {
+      &:hover {
+        .journey__text {
+          opacity: 1;
+        }
+        .journey__gated {
+          opacity: 1;
+        }
+        .journey__author {
+          opacity: 1;
+        }
+        .journey__type {
+          z-index: 1;
+          opacity: 1;
+        }
+        .journey__image {
+          filter: brightness(0.3);
+        }
       }
     }
   }

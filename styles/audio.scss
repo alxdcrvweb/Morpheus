@@ -25,6 +25,8 @@
   @media (max-width: ($md2+px)) {
     display: none !important;
   }
+  // audio_links
+
   // .audio_author
   &_author {
     color: #adadad;
@@ -52,7 +54,9 @@
   }
   &_start_off {
     animation: show 1.5s ease forwards;
-
+    @media (max-width: ($md2+px)) {
+      display: none !important;
+    }
   }
   &_start_active {
     width: 245px;

@@ -16,6 +16,7 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 import BackButton from "./backButton";
 import Link from "next/link";
 import Web3 from "web3";
+import { morphUrl } from "@/config/config";
 const GalleryOne = ({ tokenId }: { tokenId: number }) => {
   const { oneChar, myGallery, holderGallery, setOneChar } = useGallery();
   const [show, setShow] = useState(false);
@@ -59,7 +60,7 @@ const GalleryOne = ({ tokenId }: { tokenId: number }) => {
     try {
       if (myGallery && myGallery.length > 0 && myIndex >= 0) {
         //@ts-ignore
-        setOneChar(myGallery[i]);
+        setOneChar(myGallery[myIndex]);
         return;
       } else if (
         holderGallery &&
@@ -90,7 +91,7 @@ const GalleryOne = ({ tokenId }: { tokenId: number }) => {
           <BackButton />
           <div>
             <GalleryProfile
-              mainImage={"/api/image/?id=" + oneChar?.tokenId}
+              mainImage={morphUrl + "/api/image/?id=" + oneChar?.tokenId}
               userName={oneChar?.name}
             />
             {/* {console.log(oneChar?.name)} */}

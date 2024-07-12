@@ -1,12 +1,37 @@
+@import "variables";
 .footer {
   width: 100vw;
   display: flex;
   position: absolute;
   bottom: 0;
   top: auto;
+  @media (max-width: ($md2+px)) {
+    flex-direction: row-reverse;
+  }
 }
 .footer_opacity {
   position: absolute;
   opacity: 0;
   pointer-events: none;
+}
+.footer_links {
+  width: 88px;
+  height: 35px;
+  display: none;
+  margin-right: 20px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  background-color: #212121;
+  margin: 16px;
+  svg {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    padding: 5px;
+  }
+
+  @media (max-width: ($md2+px)) {
+    display: flex !important;
+  }
 }

@@ -41,7 +41,7 @@
   pointer-events: none;
   position: fixed;
   width: calc(100vw - 120px);
-  z-index: 10;
+  z-index: 100000;
   top: 0;
   right: 60px;
   padding: 25px 0;
@@ -66,7 +66,7 @@
       padding: 5px;
     }
     @media (max-width: ($md2+px)) {
-      margin-right: 10px;
+      display: none;
     }
   }
   // .header__line
@@ -193,6 +193,11 @@
     object-fit: cover;
   }
 }
+.header__logo {
+  @media (max-width: ($md2+px)) {
+    display: none;
+  }
+}
 .logout {
   display: flex;
   justify-content: space-between;
@@ -208,7 +213,7 @@
   margin-top: 5px;
 }
 .headerBurger {
-  @media (max-width: 991px) {
+  @media (max-width: ($md2+px)) {
     display: flex;
     flex-direction: row-reverse;
     justify-content: flex-end;
@@ -272,7 +277,7 @@
 .menu {
   pointer-events: auto;
   position: fixed;
-  z-index: 1000;
+  z-index: 1000000;
   top: 0;
   left: 0;
   height: 100%;

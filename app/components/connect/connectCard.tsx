@@ -60,7 +60,9 @@ function ConnectCard() {
               className="wallet_icon"
             />
 
-            <CustomConnect />
+            <div className="card_connect">
+              <CustomConnect />
+            </div>
           </div>
           <div className="card_separator">or</div>
           <div className="card_farcaster">
