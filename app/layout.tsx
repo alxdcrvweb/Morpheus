@@ -16,10 +16,11 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <ConnectProvider>
-          <Background />
-          <Header />
-          <main>{children}</main>
-          <Footer />
+          <Background>
+            <Header />
+            <main>{children}</main>
+            <Footer />
+          </Background>
         </ConnectProvider>
       </body>
     </html>
