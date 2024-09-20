@@ -1,15 +1,22 @@
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import Player from "@/app/components/footer/player";
 import "@/styles/footer.scss";
 import CustomConnect from "../connect/customConnect";
 import Opensea from "../svg/opensea";
 import Farcaster from "../svg/farcaster";
+import { usePathname } from "next/navigation";
 //music player only, but could be more in future updates.
 
 const Footer: FC = () => {
+  const [path, setPath] = useState("empty");
+  const pname = usePathname();
+
+  useEffect(() => {
+    setPath(pname.replaceAll("/", ""));
+  }, [pname]);
   return (
     <footer className="footer">
-      <Player />
+      {path !== "showdown" && <Player />}
       <div className="footer_opacity">
         <CustomConnect />
       </div>
