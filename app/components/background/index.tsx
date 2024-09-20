@@ -18,9 +18,9 @@ const Index = () => {
         </video>
       }
       {
-        <video preload="auto" loop autoPlay muted playsInline className="video2" style={{opacity: path == "showdown" ? 1 : 0}}>
-          <source src="/background/map.mp4" type="video/mp4"></source>
-        </video>
+        <div className="video2" style={{opacity: path == "showdown" ? 1 : 0}}>
+          <img src='/background/bg_3.png' className="bg_3"/>
+        </div>
       }
     </div>
   );

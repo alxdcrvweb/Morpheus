@@ -1,0 +1,188 @@
+.container {
+  border-radius: 0px 0px 0px 0px;
+  display: flex;
+  justify-content: center;
+}
+.mainClose {
+  position: absolute;
+  left: auto;
+  top: 20px;
+  cursor: pointer;
+  right: 20px;
+}
+.innerContainer {
+  border-radius: 6px;
+  background-color: rgba(33, 33, 33, 1);
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  padding: 44px 0;
+}
+
+@media (max-width: 991px) {
+  .innerContainer {
+    max-width: 100%;
+  }
+}
+
+.headerText {
+  color: rgba(255, 255, 255, 1);
+  letter-spacing: 0.72px;
+  text-align: center;
+  font-style: italic;
+  font: 400 12px/1 "ApocLCLightItalic";
+}
+
+.mainTitle {
+  color: rgba(250, 250, 250, 1);
+  letter-spacing: 2.4px;
+  text-align: center;
+  margin-top: 10px;
+  font: 800 40px/1 "ApocLCBoldItalic";
+}
+
+@media (max-width: 991px) {
+  .mainTitle {
+    max-width: 100%;
+  }
+}
+
+.imageContainer {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 305px;
+  height: 100%;
+  max-width: 100%;
+  margin: 29px 0 0 23px;
+}
+
+.mainLine {
+  border-bottom: 1px solid #909090;
+  height: 100%;
+  max-width: 305px;
+  width: 100%;
+  margin-top: 22px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.secondaryImage {
+  object-fit: contain;
+  object-position: center;
+  width: 100%;
+}
+
+.descriptionText {
+  color: rgba(255, 255, 255, 1);
+  letter-spacing: 0.72px;
+  text-align: center;
+  margin-top: 21.5px;
+  max-width: 309px;
+  font: 400 12px/14px "ApocLC", sans-serif;
+}
+
+.bottomContainer {
+  align-self: stretch;
+  display: flex;
+  margin-top: 57px;
+  width: 100%;
+  flex-direction: column;
+  padding: 0 48px;
+}
+
+@media (max-width: 991px) {
+  .bottomContainer {
+    max-width: 100%;
+    margin-top: 40px;
+    padding: 0 20px;
+  }
+}
+
+.thumbnailContainer {
+  align-self: start;
+  display: flex;
+  gap: 9px;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 991px) {
+  .thumbnailContainer {
+    margin-left: 7px;
+  }
+}
+
+.thumbnailImage {
+  object-fit: contain;
+  object-position: center;
+  width: 98px;
+  cursor: pointer;
+  font-size: 12px;
+  height: 21px;
+  background-color: #e2e2e2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+}
+.imageRow {
+  display: flex;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #909090;
+}
+.galleryPlaceholder {
+  margin-right: 10px;
+  height: 183px;
+  background-color: #161616;
+  width: 156px;
+  border-radius: 10px;
+  margin-top: 4px;
+}
+.fullImage {
+  object-fit: contain;
+  object-position: center;
+  padding-right: 10px;
+  height: 183px;
+  margin-top: 4px;
+}
+.galleryImage {
+  object-fit: cover;
+  object-position: center;
+  width: 156px;
+  max-width: 100%;
+  height: 183px;
+  border-radius: 8px;
+}
+@media (max-width: 991px) {
+  .galleryImage {
+    width: 100%;
+    height: 400px;
+  }
+}
+
+.additionalImage {
+  object-fit: contain;
+  object-position: center;
+  width: 100%;
+  margin-top: 21px;
+}
+
+@media (max-width: 991px) {
+  .additionalImage {
+    max-width: 100%;
+    margin-right: 6px;
+  }
+}
+
+.instructionsText {
+  color: rgba(255, 255, 255, 1);
+  letter-spacing: 0.74px;
+  align-self: start;
+  margin-top: 20px;
+  font: 400 12px/14px "ApocLC", sans-serif;
+  margin-left: 15px;
+  li {
+    margin-top: 2px;
+  }
+}

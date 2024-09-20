@@ -9,6 +9,12 @@
   //background-image: url("../public/leaderboard/showdown__bg.png");
   background-size: cover;
 }
+
+.leaderboard__tower {
+  position: absolute;
+  top: 300px;
+  left: 200px;
+}
 .leaderboard__connect {
   font-size: 40px;
   margin-bottom: 60px;

@@ -1,51 +1,77 @@
 @font-face {
-	font-family: "DMSans-Semibold";
+  font-family: "DMSans-Semibold";
+  font-display: swap;
+  src: url("../public/fonts/DMSansSemiBold/DMSans-SemiBold.woff2")
+      format("woff2"),
+    url("../public/fonts/DMSansSemiBold/DMSans-SemiBold.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "DMSans";
+  font-display: swap;
+  src: url("../public/fonts/DMSans/DMSans-Regular.woff2") format("woff2"),
+    url("../public/fonts/DMSans/DMSans-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "ApocLC";
+  font-display: swap;
+  src: url("../public/fonts/ApocLC/ApocLC.woff2") format("woff2"),
+    url("../public/fonts/ApocLC/ApocLC.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+	font-family: "ApocLCBoldItalic";
 	font-display: swap;
-	src: url("../public/fonts/DMSansSemiBold/DMSans-SemiBold.woff2") format("woff2"),
-		url("../public/fonts/DMSansSemiBold/DMSans-SemiBold.woff") format("woff");
+	src: url("../public/fonts/ApocLC/ApocLCTrial-UltraBoldItalic.woff2")
+		format("woff2"),
+	  url("../public/fonts/ApocLC/ApocLCTrial-UltraBoldItalic.woff")
+		format("woff");
 	font-weight: 400;
 	font-style: normal;
+  }
+@font-face {
+  font-family: "ApocLCLightItalic";
+  font-display: swap;
+  src: url("../public/fonts/ApocLC/ApocLCTrial-LightSansItalic.woff2")
+      format("woff2"),
+    url("../public/fonts/ApocLC/ApocLCTrial-LightSansItalic.woff")
+      format("woff");
+  font-weight: 400;
+  font-style: normal;
 }
 @font-face {
-	font-family: "DMSans";
-	font-display: swap;
-	src: url("../public/fonts/DMSans/DMSans-Regular.woff2") format("woff2"),
-		url("../public/fonts/DMSans/DMSans-Regular.woff") format("woff");
-	font-weight: 400;
-	font-style: normal;
+  font-family: "ApocLCLight";
+  font-display: swap;
+  src: url("../public/fonts/ApocLCLight/ApocLight.woff2") format("woff2"),
+    url("../public/fonts/ApocLCLight/ApocLight.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
 }
 @font-face {
-	font-family: "ApocLC";
-	font-display: swap;
-	src: url("../public/fonts/ApocLC/ApocLC.woff2") format("woff2"), url("../public/fonts/ApocLC/ApocLC.woff") format("woff");
-	font-weight: 400;
-	font-style: normal;
+  font-family: "Moderat";
+  font-display: swap;
+  src: url("../public/fonts/Moderat/ModeratLight.woff2") format("woff2"),
+    url("../public/fonts/Moderat/ModeratLight.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
 }
 @font-face {
-	font-family: "ApocLCLight";
-	font-display: swap;
-	src: url("../public/fonts/ApocLCLight/ApocLight.woff2") format("woff2"), url("../public/fonts/ApocLCLight/ApocLight.woff") format("woff");
-	font-weight: 400;
-	font-style: normal;
+  font-family: "Moderat-Bold";
+  font-display: swap;
+  src: url("../public/fonts/Moderat/Moderat-Bold.woff2") format("woff2"),
+    url("../public/fonts/Moderat/Moderat-Bold.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
 }
 @font-face {
-	font-family: "Moderat";
-	font-display: swap;
-	src: url("../public/fonts/Moderat/ModeratLight.woff2") format("woff2"), url("../public/fonts/Moderat/ModeratLight.woff") format("woff");
-	font-weight: 300;
-	font-style: normal;
-}
-@font-face {
-	font-family: "Moderat-Bold";
-	font-display: swap;
-	src: url("../public/fonts/Moderat/Moderat-Bold.woff2") format("woff2"), url("../public/fonts/Moderat/Moderat-Bold.woff") format("woff");
-	font-weight: 300;
-	font-style: normal;
-}
-@font-face {
-	font-family: "Nostra";
-	font-display: swap;
-	src: url("../public/fonts/Nostra/Nostra.woff2") format("woff2"), url("../public/fonts/Nostra/Nostra.woff") format("woff");
-	font-weight: 400;
-	font-style: normal;
+  font-family: "Nostra";
+  font-display: swap;
+  src: url("../public/fonts/Nostra/Nostra.woff2") format("woff2"),
+    url("../public/fonts/Nostra/Nostra.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
 }

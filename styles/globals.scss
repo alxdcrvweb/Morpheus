@@ -71,9 +71,6 @@ a:visited {
 a:hover {
   text-decoration: none;
 }
-ul li {
-  list-style: none;
-}
 img {
   vertical-align: top;
 }
@@ -107,6 +104,16 @@ main {
 }
 .video2 {
   height: 101vh;
+  object-fit: cover;
+  width: 100vw;
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+}
+.bg_3 {
+  height: 100vh;
   object-fit: cover;
   width: 100vw;
   z-index: -1;
