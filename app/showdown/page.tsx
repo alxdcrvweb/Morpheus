@@ -1,15 +1,31 @@
 "use client";
 import React, { useEffect, useMemo, useState } from "react";
-import Image from "next/image";
-import logo from "@/public/showdown.svg";
-import "@/styles/showdown.scss";
+import "@/styles/tower.scss";
+import Modal from "./modal";
 const Leaderboard: React.FC = () => {
   const [animation, setAnimation] = useState("");
   const [opacity, setOpacity] = useState(false);
+  const [hud, setHud] = useState(true);
+
+  let sleep = 530;
+  let vig = 280;
+  const precent = useMemo(() => {
+    let sum = sleep + vig;
+    return {
+      vig: Math.round((vig / sum) * 100),
+      sleep: Math.round((sleep / sum) * 100),
+    };
+  }, [sleep, vig]);
   const tr = useMemo(() => {
     if (animation == "tower")
-      return "translateX(400px) scale(2.5) translateY(0px)";
-    return "translateX(0px) scale(1) translateY(0px)";
+      return {
+        tower: "translateX(-33.9vw) scale(2.5) translateY(10vh)",
+        modal: "translateX(-70vw)",
+      };
+    return {
+      tower: "translateX(0vw) scale(1) translateY(0vh)",
+      modal: "translateX(0vw)",
+    };
   }, [animation]);
   useEffect(() => {
     setTimeout(() => {
@@ -18,15 +34,54 @@ const Leaderboard: React.FC = () => {
   }, []);
   return (
     <>
-      <div className={"leaderboard"}>
-        <Image src={logo} alt={"logo"} />
-        <div className={"leaderboard__title"}>The Showdown</div>
-        <div className={"leaderboard__text"}>
-          The Chapter 2 coming soon to the Morpheus world. But who will be the
-          leader?{" "}
+      <div
+        className="clickable"
+        onClick={() => {
+          setHud(false);
+          setTimeout(() => {
+            if (animation == "tower") {
+              setAnimation("");
+            } else {
+              setAnimation("tower");
+            }
+          }, 1000);
+        }}
+      />
+      <div
+        className={"tower"}
+        style={{ opacity: hud ? 1 : 0, transition: "1s ease all" }}
+      >
+        <div className="tower__descr">
+          Exploration Phase 1. The first facti Exploration Phase 1. The first
+          faction to achieve 500 points will unlock new locationon to achieve
+          500
+        </div>
+        <div className="tower__bottom">
+          <div className="tower__bottom__text">
+            Exploration Phase 1. The first faction to achieve 500 points will
+            unlock new location
+          </div>
+          <div className="tower__stats">
+            <div className="tower__name">Sleepers</div>
+            <div className="tower__nums">
+              <div
+                className="tower__num_s"
+                style={{ width: precent.sleep + "%" }}
+              >
+                {sleep}
+              </div>
+              <div
+                className="tower__num_v"
+                style={{ width: precent.vig + "%" }}
+              >
+                {vig}
+              </div>
+            </div>
+            <div className="tower__name">Vigilant</div>
+          </div>
         </div>
       </div>
-      {/* <video
+      <video
         preload="auto"
         loop
         autoPlay
@@ -36,11 +91,14 @@ const Leaderboard: React.FC = () => {
         style={{
           opacity: opacity ? 1 : 0,
           transition: "1000ms cubic-bezier(.65,0,.78,.36) all",
-          transform: tr,
+          transform: tr.tower,
         }}
       >
         <source src="/background/map.mp4" type="video/mp4"></source>
-      </video> */}
+      </video>
+      <div className="tower__modal" style={{ transform: tr.modal }}>
+        <Modal setAnimation={setAnimation} setHud={setHud}/>
+      </div>
     </>
   );
 };
