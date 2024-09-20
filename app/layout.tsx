@@ -6,7 +6,7 @@ import Footer from "@/app/components/footer";
 import "@rainbow-me/rainbowkit/styles.css";
 import React from "react";
 import ConnectProvider from "./components/connect/connectProvider";
-import Index from "./components/background";
+import Background from "./components/background/bg";
 export default function RootLayout({
   children,
 }: {
@@ -16,7 +16,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <ConnectProvider>
-          <Index />
+          <Background />
           <Header />
           <main>{children}</main>
           <Footer />

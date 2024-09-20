@@ -5,8 +5,6 @@ import "@/styles/audio.scss";
 import Image from "next/image";
 import play from "@/public/player/play.svg";
 import pause from "@/public/player/pause.svg";
-import Opensea from "../../svg/opensea";
-import Farcaster from "../../svg/farcaster";
 
 const playlist = [
   {
