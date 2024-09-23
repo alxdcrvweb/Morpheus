@@ -5,13 +5,7 @@ import Image from "next/image";
 import { morphUrl } from "@/config/config";
 import classNames from "classnames";
 
-function AddChar({
-  setAnimation,
-  setHud,
-}: {
-  setAnimation: (a: string) => void;
-  setHud: (h: boolean) => void;
-}) {
+function AddChar() {
   const filters = ["My team", "Sleeper", "Vigilant"];
   const [activeFilter, setActiveFilter] = React.useState("My team");
   const { myGallery } = useGallery();
@@ -41,14 +35,6 @@ function AddChar({
     <>
       <div className="container">
         <div className="innerContainer">
-          <img
-            src="/close.svg"
-            className="mainClose"
-            onClick={() => {
-              setAnimation("");
-              setHud(true);
-            }}
-          />
           <div className="headerText">And now it’s time to</div>
           <div className="mainTitle">Choose a Morph to Explore</div>
           <div className="mainLine" />

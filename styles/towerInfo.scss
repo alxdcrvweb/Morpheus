@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: column;
   padding: 0 15px;
+  margin-bottom: 232px;
 }
 .head {
   display: flex;
@@ -27,23 +28,76 @@
   letter-spacing: 1.32px;
   text-align: right;
 }
-.description2 {
-  width: 345px;
+.tower7container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.bazar {
+  align-self: flex-start;
   color: #fafafa;
-  text-align: center;
-  margin-top: 30px;
-  font-size: 12px;
-  line-height: 14px;
+  margin-left: 30px;
+  margin-bottom: 18px;
+  font: 16px "ApocLCLightItalic", sans-serif;
+}
+.t7 {
+  width: 100%;
+  display: flex;
+  margin-top: -210px;
+  @media (max-width: 1250px) {
+    margin-top: 80px;
+  }
+}
+.tower7 {
+  border-radius: 5px;
+  width: 320px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+.line2 {
+  margin-top: 65px;
+}
+.tower8container {
+  margin-top: -350px;
+}
+.t9 {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 35px;
+  margin-top: -350px;
+}
+.tower9container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.description2 {
+  width: 377px;
+  color: #fafafa;
+  margin-top: 43px;
+  margin-left: 17px;
   letter-spacing: 0.75px;
+  font: 16px "ApocLCBoldItalic", sans-serif;
+  line-height: 24px;
 }
 .description3 {
-  width: 345px;
-  letter-spacing: 0.75px;
-  line-height: 14px;
+  width: 377px;
   color: #fafafa;
-  margin-top: 20px;
+  margin-top: 65px;
   text-align: center;
-  font-size: 12px;
+  letter-spacing: 0.75px;
+  font: 16px "ApocLCBoldItalic", sans-serif;
+  line-height: 24px;
+}
+.description4 {
+  width: 244px;
+  color: #fafafa;
+  margin-top: 45px;
+  margin-bottom: 45px;
+  text-align: center;
+  letter-spacing: 0.75px;
+  font: 16px "ApocLCBoldItalic", sans-serif;
+  line-height: 24px;
 }
 .leftCol {
   width: 98px;
@@ -56,6 +110,18 @@
   font-size: 12px;
   margin-top: -35px;
   background-color: #e2e2e2;
+}
+.tower6container {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-top: -230px;
+  @media (max-width: 1250px) {
+    display: none;
+  }
+}
+.tower6 {
+  width: 493px;
 }
 .tower2 {
   @media (max-width: 1150px) {
@@ -105,14 +171,16 @@
 .wrapper {
   align-self: start;
   width: 100%;
+  margin-top: 45px;
   display: flex;
+  padding-left: 20px;
+  padding-right: 20px;
   justify-content: space-between;
 }
 @media (max-width: 1150px) {
   .wrapper {
     max-width: 100%;
     justify-content: center;
-
   }
 }
 .leftColumn {
@@ -154,17 +222,57 @@
   object-fit: cover;
   object-position: center;
 }
+.tower1 {
+  width: 121px;
+  height: 121px;
+}
+.tower2 {
+  max-width: 303px;
+  min-width: 150px;
+}
+.tower3 {
+  max-width: 189px;
+  min-width: 100px;
+}
+.tower4 {
+  max-width: 303px;
+  min-width: 150px;
+}
+
+.tower5 {
+  max-width: 317px;
+  min-width: 150px;
+}
+.towerTop {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 62px;
+}
+.agree {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  margin-top: 103px;
+}
+.lineTop {
+  width: 100%;
+  margin-top: 52px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
 .towerLine {
   border-bottom: 1px solid #909090;
   height: 100%;
-  max-width: 305px;
+  max-width: 125px;
   width: 100%;
-  margin-top: 40px;
+  margin-top: 75px;
+  margin-bottom: 75px;
   object-fit: cover;
   object-position: center;
 }
 .largeImage {
-  aspect-ratio: 0.41;
   object-fit: contain;
   object-position: center;
   width: 202px;
@@ -180,10 +288,13 @@
 .description {
   color: rgba(255, 255, 255, 1);
   letter-spacing: 0.75px;
-  text-align: center;
-  margin-top: 182px;
-  max-width: 345px;
-  font: 12px "ApocLC", sans-serif;
+  text-align: start;
+  margin-top: 30px;
+  max-width: 659px;
+  margin-left: 20px;
+  align-self: flex-start;
+  font: 16px "ApocLCBoldItalic", sans-serif;
+  line-height: 24px;
 }
 @media (max-width: 1150px) {
   .description {
