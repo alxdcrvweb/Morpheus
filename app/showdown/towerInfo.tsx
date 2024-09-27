@@ -1,18 +1,39 @@
 import * as React from "react";
 import "@/styles/towerInfo.scss";
+import Link from "next/link";
+import { useConnect } from "@/store/useConnect";
+import axios from "axios";
+import { backendUrl } from "../api/nfts/route";
 
-function TowerInfo({
-  setAnimation,
-  setHud,
-}: {
-  setAnimation: (a: string) => void;
-  setHud: (h: boolean) => void;
-}) {
+function TowerInfo() {
+  const { address } = useConnect();
+  const [score, setScore] = React.useState(0);
+  React.useEffect(() => {
+    if (address) {
+      getScore();
+    }
+  }, [address]);
+  const getScore = async () => {
+    try {
+      const res = await axios.get(
+        backendUrl + "/api/rankings/personal/" + address
+      );
+      console.log(res);
+    } catch (e) {
+      console.log(e);
+    }
+  };
   return (
     <>
       <div className="container">
         <div className="head">
-          <div className="leftCol">Score: 56</div>
+          {address ? (
+            <div className="leftCol">Score: {score}</div>
+          ) : (
+            <Link href="/connect">
+              <div className="leftCol">Connect</div>
+            </Link>
+          )}
           <div className="rightCol">
             <div className="location">Location</div>
             <div className="locationName">
@@ -20,14 +41,7 @@ function TowerInfo({
             </div>
           </div>
         </div>
-        <img
-          src="/close.svg"
-          className="mainClose"
-          onClick={() => {
-            setAnimation("");
-            setHud(true);
-          }}
-        />
+
         <div className="content">
           <img loading="lazy" src="/showdown.svg" className="mainImage" />
           <div className="agreement">Tower of Agreement</div>

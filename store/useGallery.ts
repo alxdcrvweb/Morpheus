@@ -5,6 +5,7 @@ export interface IChar {
   owner: string;
   image: string;
   name: string;
+  proof: string[];
   metadata: [
     {
       trait_type: string;

@@ -2,17 +2,17 @@
   border-radius: 0px 0px 0px 0px;
   display: flex;
   justify-content: center;
+  overflow: visible;
+  background-color: #212121;
 }
 .mainClose {
-  position: absolute;
-  left: auto;
-  top: 20px;
+  position: fixed;
+  margin-top: 20px;
   cursor: pointer;
-  right: 20px;
+  z-index: 10;
 }
 .innerContainer {
   border-radius: 6px;
-  background-color: rgba(33, 33, 33, 1);
   display: flex;
   width: 100%;
   flex-direction: column;

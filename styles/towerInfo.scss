@@ -3,12 +3,15 @@
   display: flex;
   flex-direction: column;
   padding: 0 15px;
-  margin-bottom: 232px;
+  padding-bottom: 190px;
+  margin-left: 30px;
+  background-color: rgba(33, 33, 33, 1);
+  margin-bottom: -10px;
 }
 .head {
   display: flex;
   justify-content: space-between;
-  margin-top: 50px;
+  margin-top: 20px;
 }
 @media (max-width: 991px) {
   .container {
@@ -44,6 +47,7 @@
   width: 100%;
   display: flex;
   margin-top: -210px;
+  margin-left: 20px;
   @media (max-width: 1250px) {
     margin-top: 80px;
   }
@@ -58,6 +62,11 @@
 }
 .tower8container {
   margin-top: -350px;
+  max-width: 100%;
+}
+.tower8 {
+  max-width: 100%;
+
 }
 .t9 {
   width: 100%;
@@ -99,6 +108,32 @@
   font: 16px "ApocLCBoldItalic", sans-serif;
   line-height: 24px;
 }
+.description5 {
+  text-align: center;
+  max-width: 563px;
+  color: #fafafa;
+  margin-top: 45px;
+  text-align: center;
+  letter-spacing: 0.75px;
+  font: 16px "ApocLCBoldItalic", sans-serif;
+  line-height: 24px;
+}
+.description6 {
+  text-align: center;
+  color: #fafafa;
+  text-align: center;
+  letter-spacing: 0.75px;
+  font: 16px "ApocLCBoldItalic", sans-serif;
+  line-height: 24px;
+}
+.connect {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: rgba(33, 33, 33, 1);
+  margin-top: 89px;
+  cursor: pointer;
+}
 .leftCol {
   width: 98px;
   height: 21px;
@@ -108,7 +143,6 @@
   color: black;
   border-radius: 20px;
   font-size: 12px;
-  margin-top: -35px;
   background-color: #e2e2e2;
 }
 .tower6container {
@@ -122,6 +156,7 @@
 }
 .tower6 {
   width: 493px;
+  margin-right: -70px;
 }
 .tower2 {
   @media (max-width: 1150px) {
@@ -229,19 +264,38 @@
 .tower2 {
   max-width: 303px;
   min-width: 150px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 7px;
+  &:hover {
+    border: 1px solid white;
+  }
 }
 .tower3 {
   max-width: 189px;
   min-width: 100px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 7px;
+
+  &:hover {
+    border: 1px solid white;
+  }
 }
 .tower4 {
   max-width: 303px;
   min-width: 150px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+
+  border-radius: 7px;
+
+  &:hover {
+    border: 1px solid white;
+  }
 }
 
 .tower5 {
   max-width: 317px;
   min-width: 150px;
+  margin-left: 50px;
 }
 .towerTop {
   width: 100%;

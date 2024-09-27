@@ -19,7 +19,7 @@ const Leaderboard: React.FC = () => {
   const tr = useMemo(() => {
     if (animation == "tower")
       return {
-        tower: "translateX(-33.9vw) scale(2.5) translateY(10vh)",
+        tower: "translateX(-33vw) scale(1.5) translateY(10vh)",
         modal: "translateX(-70vw)",
       };
     return {
@@ -97,7 +97,15 @@ const Leaderboard: React.FC = () => {
         <source src="/background/map.mp4" type="video/mp4"></source>
       </video>
       <div className="tower__modal" style={{ transform: tr.modal }}>
-        <Modal setAnimation={setAnimation} setHud={setHud}/>
+        <img
+          src="/close.svg"
+          className="mainClose"
+          onClick={() => {
+            setAnimation("");
+            setHud(true);
+          }}
+        />
+        <Modal setAnimation={setAnimation} setHud={setHud} />
       </div>
     </>
   );
