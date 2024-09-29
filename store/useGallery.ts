@@ -5,7 +5,9 @@ export interface IChar {
   owner: string;
   image: string;
   name: string;
+  faction: number;
   proof: string[];
+  stakedIn?: string;
   metadata: [
     {
       trait_type: string;

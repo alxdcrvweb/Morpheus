@@ -6,7 +6,7 @@ const Leaderboard: React.FC = () => {
   const [animation, setAnimation] = useState("");
   const [opacity, setOpacity] = useState(false);
   const [hud, setHud] = useState(true);
-
+  
   let sleep = 530;
   let vig = 280;
   const precent = useMemo(() => {
