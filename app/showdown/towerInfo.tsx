@@ -15,10 +15,10 @@ function TowerInfo() {
   }, [address]);
   const getScore = async () => {
     try {
-      const res = await axios.get(
-        backendUrl + "/api/rankings/personal/" + address
-      );
-      console.log(res);
+      // const res = await axios.get(
+      //   backendUrl + "/api/rankings/personal/" + address
+      // );
+      // console.log(res);
     } catch (e) {
       console.log(e);
     }
