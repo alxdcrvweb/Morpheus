@@ -40,7 +40,7 @@ const Modal = ({
   useEffect(() => {
     if (active) {
       setMax(view + 500);
-    } 
+    }
   }, [active]);
   useEffect(() => {
     setActive(aa.inView);
@@ -50,12 +50,8 @@ const Modal = ({
       <div ref={ref}>
         <TowerInfo />
         <AddChar />
-        <div className="lastTopic">
-          <img
-            src="/background/tower/tower11.png"
-            className="tower11"
-            ref={aa.ref}
-          />
+        <div className="lastTopic" ref={aa.ref}>
+          <img src="/background/tower/tower11.png" className="tower11" />
           <img
             src="/background/tower/tower12.png"
             className="tower12"
