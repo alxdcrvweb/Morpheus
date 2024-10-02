@@ -95,6 +95,7 @@ function TowerInfo() {
             </div>
           </div>
           <div className="tower6container">
+            <img src="/background/tower/radio.gif" className="towergif" />
             <img src="/background/tower/tower6.png" className="tower6" />
           </div>
           <div className="t7">

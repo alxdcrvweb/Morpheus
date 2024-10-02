@@ -2,11 +2,29 @@
 import React, { useEffect, useMemo, useState } from "react";
 import "@/styles/tower.scss";
 import Modal from "./modal";
+import axios from "axios";
+import { towerContract } from "@/utils/contracts/tower";
+import { backendUrl } from "../api/nfts/route";
+import { useConnect } from "@/store/useConnect";
 const Leaderboard: React.FC = () => {
   const [animation, setAnimation] = useState("");
   const [opacity, setOpacity] = useState(false);
   const [hud, setHud] = useState(true);
-  
+  const { address } = useConnect();
+
+  const getStats = async () => {
+    try {
+      const res = await axios.get(
+        backendUrl + "/api/rankings/global/" + towerContract
+      );
+      console.log(res.data);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+  useEffect(() => {
+    getStats();
+  }, [address]);
   let sleep = 530;
   let vig = 280;
   const precent = useMemo(() => {
@@ -19,7 +37,7 @@ const Leaderboard: React.FC = () => {
   const tr = useMemo(() => {
     if (animation == "tower")
       return {
-        tower: "translateX(-33vw) scale(1.5) translateY(10vh)",
+        tower: "translateX(-33.3vw) scale(1.4) translateY(10vh)",
         modal: "translateX(-70vw)",
       };
     return {

@@ -85,28 +85,28 @@
   color: #fafafa;
   margin-top: 43px;
   margin-left: 17px;
-  letter-spacing: 0.75px;
-  font: 16px "ApocLCBoldItalic", sans-serif;
+  font: 16px "ApocLC";
   line-height: 24px;
+  letter-spacing: 0.96px;
 }
 .description3 {
-  width: 377px;
+  width: 345px;
   color: #fafafa;
   margin-top: 65px;
   text-align: center;
-  letter-spacing: 0.75px;
-  font: 16px "ApocLCBoldItalic", sans-serif;
+  font: 16px "ApocLC";
   line-height: 24px;
+  letter-spacing: 0.96px;
 }
 .description4 {
-  width: 244px;
+  width: 241px;
   color: #fafafa;
   margin-top: 45px;
   margin-bottom: 45px;
   text-align: center;
-  letter-spacing: 0.75px;
-  font: 16px "ApocLCBoldItalic", sans-serif;
+  font: 16px "ApocLC";
   line-height: 24px;
+  letter-spacing: 0.96px;
 }
 .description5 {
   text-align: center;
@@ -144,6 +144,12 @@
   border-radius: 20px;
   font-size: 12px;
   background-color: #e2e2e2;
+}
+.towergif {
+  width: 469px;
+  height: 487px;
+  margin-right: -550px;
+  margin-top: -90px;
 }
 .tower6container {
   display: flex;
@@ -265,7 +271,7 @@
   max-width: 303px;
   min-width: 150px;
   border: 1px solid rgba(255, 255, 255, 0.5);
-  border-radius: 7px;
+  border-radius: 7px;  transition: 500ms ease all;
   &:hover {
     border: 1px solid white;
   }
@@ -275,7 +281,7 @@
   min-width: 100px;
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 7px;
-
+  transition: 500ms ease all;
   &:hover {
     border: 1px solid white;
   }
@@ -284,9 +290,8 @@
   max-width: 303px;
   min-width: 150px;
   border: 1px solid rgba(255, 255, 255, 0.5);
-
   border-radius: 7px;
-
+  transition: 500ms ease all;
   &:hover {
     border: 1px solid white;
   }
@@ -347,13 +352,17 @@
   max-width: 659px;
   margin-left: 20px;
   align-self: flex-start;
-  font: 16px "ApocLCBoldItalic", sans-serif;
+  font: 16px "ApocLC";
   line-height: 24px;
+  letter-spacing: 0.96px;
 }
 @media (max-width: 1150px) {
   .description {
     margin-top: 30px;
   }
+}
+.rightCol {
+  margin-right: 10px;
 }
 .rightColumn {
   display: flex;
