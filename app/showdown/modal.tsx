@@ -51,7 +51,7 @@ const Modal = ({
         <TowerInfo />
         <AddChar />
         <div className="lastTopic" ref={aa.ref}>
-          <img src="/background/tower/tower11.png" className="tower11" />
+          <img src="/background/tower/tower112.png" className="tower11" />
           <img
             src="/background/tower/tower12.png"
             className="tower12"
