@@ -4,9 +4,13 @@ import Link from "next/link";
 import { useConnect } from "@/store/useConnect";
 import axios from "axios";
 import { backendUrl } from "../api/nfts/route";
+import { useStatistic } from "@/store/useStatistic";
+import { towerContract } from "@/utils/contracts/tower";
 
 function TowerInfo() {
   const { address } = useConnect();
+  const { setUserPoints, userPoints } = useStatistic();
+
   const [score, setScore] = React.useState(0);
   React.useEffect(() => {
     if (address) {
@@ -15,10 +19,11 @@ function TowerInfo() {
   }, [address]);
   const getScore = async () => {
     try {
-      // const res = await axios.get(
-      //   backendUrl + "/api/rankings/personal/" + address
-      // );
-      // console.log(res);
+      const res = await axios.get(
+        backendUrl + "/api/rankings/personal/" + address
+      );
+      setUserPoints(res.data.points[towerContract.toLowerCase()])
+      // console.log(res.data.points[towerContract.toLowerCase()]);
     } catch (e) {
       console.log(e);
     }
@@ -28,7 +33,7 @@ function TowerInfo() {
       <div className="container">
         <div className="head">
           {address ? (
-            <div className="leftCol">Score: {score}</div>
+            <div className="leftCol">Score: {userPoints}</div>
           ) : (
             <Link href="/connect">
               <div className="leftCol">Connect</div>

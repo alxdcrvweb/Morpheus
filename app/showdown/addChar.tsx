@@ -217,7 +217,7 @@ function AddChar() {
                         placeholder="blur"
                         blurDataURL="/gallery/profile.png"
                         height={183}
-                        className={"galleryImage"}
+                        className={"towerImage"}
                       />
                     </div>
                   );
