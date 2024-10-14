@@ -6,18 +6,31 @@ import axios from "axios";
 import { towerContract } from "@/utils/contracts/tower";
 import { backendUrl } from "../api/nfts/route";
 import { useConnect } from "@/store/useConnect";
+import { useStatistic } from "@/store/useStatistic";
 const Leaderboard: React.FC = () => {
   const [animation, setAnimation] = useState("");
   const [opacity, setOpacity] = useState(false);
   const [hud, setHud] = useState(true);
   const { address } = useConnect();
-
+  const { setFactionPoinsts, factionPoints } = useStatistic()
   const getStats = async () => {
     try {
       const res = await axios.get(
         backendUrl + "/api/rankings/global/" + towerContract
       );
       console.log(res.data);
+      if (res.data.rankings) {
+        let sleeper = res.data.rankings.sleeper.reduce((a, c) => {
+          return a + c.sleeperAmount
+        }, 0);
+        console.log(sleeper)
+        let vigilant = res.data.rankings.vigilant.reduce((a, c) => {
+          return a + c.vigilantAmount
+        }, 0);
+        console.log(vigilant)
+        setFactionPoinsts({ sleep: sleeper, vigilant: vigilant })
+      }
+
     } catch (e) {
       console.log(e);
     }
@@ -25,15 +38,14 @@ const Leaderboard: React.FC = () => {
   useEffect(() => {
     getStats();
   }, [address]);
-  let sleep = 530;
-  let vig = 280;
+
   const precent = useMemo(() => {
-    let sum = sleep + vig;
+    let sum = factionPoints.sleep + factionPoints.vigilant;
     return {
-      vig: Math.round((vig / sum) * 100),
-      sleep: Math.round((sleep / sum) * 100),
+      vig: Math.round((factionPoints.vigilant / sum) * 100),
+      sleep: Math.round((factionPoints.sleep / sum) * 100),
     };
-  }, [sleep, vig]);
+  }, [factionPoints]);
   const tr = useMemo(() => {
     if (animation == "tower")
       return {
@@ -65,6 +77,9 @@ const Leaderboard: React.FC = () => {
           }, 1000);
         }}
       />
+      <div className="mob">
+        Not available yet for mobile
+      </div>
       <div
         className={"tower"}
         style={{ opacity: hud ? 1 : 0, transition: "1s ease all" }}
@@ -86,13 +101,13 @@ const Leaderboard: React.FC = () => {
                 className="tower__num_s"
                 style={{ width: precent.sleep + "%" }}
               >
-                {sleep}
+                {factionPoints.sleep}
               </div>
               <div
                 className="tower__num_v"
                 style={{ width: precent.vig + "%" }}
               >
-                {vig}
+                {factionPoints.vigilant}
               </div>
             </div>
             <div className="tower__name">Vigilant</div>

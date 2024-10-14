@@ -7,7 +7,6 @@ import classNames from "classnames";
 import { useConnect } from "@/store/useConnect";
 import Link from "next/link";
 import axios from "axios";
-import { backendUrl } from "../api/nfts/route";
 import { towerContract } from "@/utils/contracts/tower";
 import { isAddress } from "web3-validator";
 
@@ -92,12 +91,15 @@ function AddChar() {
       await tower.methods.endExploration(tokenId).send({
         from: address,
       });
-      setTimeout(() => {
-        getGal();
-      }, 5000);
+      let ind = myGallery.findIndex((el) => el.tokenId == tokenId)
+      let n = myGallery
+      let newGall = [...n.splice(ind, -1), { ...myGallery[ind], stakedIn: '' }]
+      console.log(newGall)
+      setMyGallery(newGall);
     } catch (e) {
       console.log(e);
     }
+
   };
   const approveAndStake = async (
     tokenId: number,
@@ -136,9 +138,12 @@ function AddChar() {
             from: address,
           });
         console.log(res);
-        setTimeout(() => {
-          getGal();
-        }, 5000);
+
+        let ind = myGallery.findIndex((el) => el.tokenId == tokenId)
+        let n = myGallery
+        let newGall = [...n.splice(ind, -1), { ...myGallery[ind], stakedIn: towerContract }]
+        console.log(newGall)
+        setMyGallery(newGall);
       } catch (e) {
         console.log(e);
       }

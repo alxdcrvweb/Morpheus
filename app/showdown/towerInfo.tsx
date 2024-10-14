@@ -10,8 +10,6 @@ import { towerContract } from "@/utils/contracts/tower";
 function TowerInfo() {
   const { address } = useConnect();
   const { setUserPoints, userPoints } = useStatistic();
-
-  const [score, setScore] = React.useState(0);
   React.useEffect(() => {
     if (address) {
       getScore();
@@ -22,7 +20,7 @@ function TowerInfo() {
       const res = await axios.get(
         backendUrl + "/api/rankings/personal/" + address
       );
-      setUserPoints(res.data.points[towerContract.toLowerCase()])
+      setUserPoints(res.data.points[towerContract.toLowerCase()].total)
       // console.log(res.data.points[towerContract.toLowerCase()]);
     } catch (e) {
       console.log(e);
