@@ -14,6 +14,7 @@ function AddChar() {
   const filters = ["My team", "Sleeper", "Vigilant"];
   const [activeFilter, setActiveFilter] = React.useState("My team");
   const { myGallery, setMyGallery } = useGallery();
+  const [hover, setHover] = React.useState('')
   const { address, tower, ens, warpcastUser, mint } = useConnect();
   const [type, setType] = React.useState("");
   const check = async (user: string) => {
@@ -67,12 +68,14 @@ function AddChar() {
     );
   }, [myGallery, activeFilter]);
   const emptyCards = React.useMemo(() => {
-    if (!activeCards) return 5;
-    if (activeCards.length > 5) {
+    if (!activeCards) return 6;
+    if (activeCards.length % 6 == 0)
+      return 6;
+    if (activeCards.length > 6) {
       return 0;
     }
-    if (activeCards.length <= 5) {
-      return 5 - activeCards.length;
+    if (activeCards.length <= 6) {
+      return 6 - activeCards.length;
     }
   }, [activeCards]);
   const checkApprove = async () => {
@@ -91,15 +94,21 @@ function AddChar() {
       await tower.methods.endExploration(tokenId).send({
         from: address,
       });
-      let ind = myGallery.findIndex((el) => el.tokenId == tokenId)
-      let n = myGallery
-      let newGall = [...n.splice(ind, -1), { ...myGallery[ind], stakedIn: '' }]
-      console.log(newGall)
-      setMyGallery(newGall);
+      let ind = myGallery.findIndex((el) => el.tokenId == tokenId);
+
+      if (ind !== -1) {
+        let newGall = [
+          ...myGallery.slice(0, ind), 
+          { ...myGallery[ind], stakedIn: '' },  
+          ...myGallery.slice(ind + 1)  
+        ]; 
+        console.log(newGall)
+        setMyGallery(newGall);
+      }
+
     } catch (e) {
       console.log(e);
     }
-
   };
   const approveAndStake = async (
     tokenId: number,
@@ -137,13 +146,17 @@ function AddChar() {
           .send({
             from: address,
           });
-        console.log(res);
+          let ind = myGallery.findIndex((el) => el.tokenId == tokenId);
 
-        let ind = myGallery.findIndex((el) => el.tokenId == tokenId)
-        let n = myGallery
-        let newGall = [...n.splice(ind, -1), { ...myGallery[ind], stakedIn: towerContract }]
-        console.log(newGall)
-        setMyGallery(newGall);
+          if (ind !== -1) {
+            let newGall = [
+              ...myGallery.slice(0, ind), 
+              { ...myGallery[ind], stakedIn: towerContract },  
+              ...myGallery.slice(ind + 1)  
+            ]; 
+            console.log(newGall)
+            setMyGallery(newGall);
+          }
       } catch (e) {
         console.log(e);
       }
@@ -192,12 +205,28 @@ function AddChar() {
                   return (
                     <div
                       key={el.image}
+                      onMouseEnter={() => setHover(el.name)}
+                      onMouseLeave={() => setHover('')}
+
                       className="fullImage"
                       onClick={() => {
                         if (!el.stakedIn)
                           approveAndStake(el.tokenId, el.faction, el.proof);
                       }}
                     >
+                      {!el.stakedIn && hover == el.name && (
+                        <div className="galleryExploring">
+                          <div className="galleryExploringText">
+                            {el.name}
+                          </div>
+                          <button
+                            className="galleryExploringWithdraw"
+
+                          >
+                            Explore
+                          </button>
+                        </div>
+                      )}
                       {el.stakedIn && (
                         <div className="galleryExploring">
                           <div className="galleryExploringText">
