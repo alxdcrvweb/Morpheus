@@ -17,6 +17,16 @@ function AddChar() {
   const [hover, setHover] = React.useState('')
   const { address, tower, ens, warpcastUser, mint } = useConnect();
   const [type, setType] = React.useState("");
+  const [selected, setSelected] = React.useState(0)
+  const checkSelected = async () =>{
+    try {
+      const res = await tower.methods.accountToSelectedFaction().call()
+      setSelected(res)
+    }
+    catch (e) {
+      console.log(e)
+    }
+  }
   const check = async (user: string) => {
     console.log(user);
     // console.log(web3)
@@ -110,6 +120,7 @@ function AddChar() {
       console.log(e);
     }
   };
+  let isUsed = true 
   const approveAndStake = async (
     tokenId: number,
     faction: number,
@@ -214,6 +225,23 @@ function AddChar() {
                           approveAndStake(el.tokenId, el.faction, el.proof);
                       }}
                     >
+                      {isUsed && (
+                        <div className="galleryExploring">
+                        <div className="galleryExploringText">
+                          Already exploring
+                        </div>
+                        <button
+                          className="galleryExploringWithdraw"
+                          onClick={() => {
+                            if (el.stakedIn) {
+                              withdraw(el.tokenId);
+                            }
+                          }}
+                        >
+                          Withdraw
+                        </button>
+                      </div>
+                      )}
                       {!el.stakedIn && hover == el.name && (
                         <div className="galleryExploring">
                           <div className="galleryExploringText">
