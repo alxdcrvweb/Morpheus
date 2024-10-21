@@ -14,19 +14,19 @@ function AddChar() {
   const filters = ["My team", "Sleeper", "Vigilant"];
   const [activeFilter, setActiveFilter] = React.useState("My team");
   const { myGallery, setMyGallery } = useGallery();
-  const [hover, setHover] = React.useState('')
+  const [hover, setHover] = React.useState("");
   const { address, tower, ens, warpcastUser, mint } = useConnect();
   const [type, setType] = React.useState("");
-  const [selected, setSelected] = React.useState(0)
-  const checkSelected = async () =>{
+  const [selected, setSelected] = React.useState(0);
+  // console.log(selected);
+  const checkSelected = async () => {
     try {
-      const res = await tower.methods.accountToSelectedFaction().call()
-      setSelected(res)
+      const res = await tower.methods.accountToSelectedFaction(address).call();
+      setSelected(Number(res));
+    } catch (e) {
+      console.log(e);
     }
-    catch (e) {
-      console.log(e)
-    }
-  }
+  };
   const check = async (user: string) => {
     console.log(user);
     // console.log(web3)
@@ -79,8 +79,7 @@ function AddChar() {
   }, [myGallery, activeFilter]);
   const emptyCards = React.useMemo(() => {
     if (!activeCards) return 6;
-    if (activeCards.length % 6 == 0)
-      return 6;
+    if (activeCards.length % 6 == 0) return 6;
     if (activeCards.length > 6) {
       return 0;
     }
@@ -108,19 +107,18 @@ function AddChar() {
 
       if (ind !== -1) {
         let newGall = [
-          ...myGallery.slice(0, ind), 
-          { ...myGallery[ind], stakedIn: '' },  
-          ...myGallery.slice(ind + 1)  
-        ]; 
-        console.log(newGall)
+          ...myGallery.slice(0, ind),
+          { ...myGallery[ind], stakedIn: "" },
+          ...myGallery.slice(ind + 1),
+        ];
+        console.log(newGall);
         setMyGallery(newGall);
       }
-
     } catch (e) {
       console.log(e);
     }
   };
-  let isUsed = true 
+  // let isUsed = true;
   const approveAndStake = async (
     tokenId: number,
     faction: number,
@@ -157,22 +155,27 @@ function AddChar() {
           .send({
             from: address,
           });
-          let ind = myGallery.findIndex((el) => el.tokenId == tokenId);
+        let ind = myGallery.findIndex((el) => el.tokenId == tokenId);
 
-          if (ind !== -1) {
-            let newGall = [
-              ...myGallery.slice(0, ind), 
-              { ...myGallery[ind], stakedIn: towerContract },  
-              ...myGallery.slice(ind + 1)  
-            ]; 
-            console.log(newGall)
-            setMyGallery(newGall);
-          }
+        if (ind !== -1) {
+          let newGall = [
+            ...myGallery.slice(0, ind),
+            { ...myGallery[ind], stakedIn: towerContract },
+            ...myGallery.slice(ind + 1),
+          ];
+          console.log(newGall);
+          setMyGallery(newGall);
+        }
       } catch (e) {
         console.log(e);
       }
     };
   };
+  React.useEffect(() => {
+    if (tower) {
+      checkSelected();
+    }
+  }, [tower, myGallery]);
   return (
     <>
       <div className="container">
@@ -217,41 +220,25 @@ function AddChar() {
                     <div
                       key={el.image}
                       onMouseEnter={() => setHover(el.name)}
-                      onMouseLeave={() => setHover('')}
-
+                      onMouseLeave={() => setHover("")}
                       className="fullImage"
                       onClick={() => {
-                        if (!el.stakedIn)
+                        if (
+                          !el.stakedIn &&
+                          (selected == 0 || selected == el.faction)
+                        )
                           approveAndStake(el.tokenId, el.faction, el.proof);
                       }}
                     >
-                      {isUsed && (
-                        <div className="galleryExploring">
-                        <div className="galleryExploringText">
-                          Already exploring
-                        </div>
-                        <button
-                          className="galleryExploringWithdraw"
-                          onClick={() => {
-                            if (el.stakedIn) {
-                              withdraw(el.tokenId);
-                            }
-                          }}
-                        >
-                          Withdraw
-                        </button>
-                      </div>
-                      )}
                       {!el.stakedIn && hover == el.name && (
                         <div className="galleryExploring">
-                          <div className="galleryExploringText">
-                            {el.name}
-                          </div>
-                          <button
-                            className="galleryExploringWithdraw"
-
-                          >
-                            Explore
+                          {" "}
+                          {/* {console.log(el.faction)} */}
+                          <div className="galleryExploringText">{el.name}</div>
+                          <button className="galleryExploringWithdraw">
+                            {selected == 0 || selected == el.faction
+                              ? "Explore"
+                              : "Wrong faction"}
                           </button>
                         </div>
                       )}

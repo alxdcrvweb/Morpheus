@@ -1,4 +1,4 @@
-export const towerContract = "0x39e347DdE3ac8DDC91EAdEd3b0616CCdB7d21644";
+export const towerContract = "0xC0e43BDb6d6887DdC4F7fEBE7eADb1d79C0E4420";
 export const towerAbi = [
   {
     inputs: [
@@ -93,6 +93,13 @@ export const towerAbi = [
     type: "event",
   },
   {
+    inputs: [{ internalType: "address", name: "", type: "address" }],
+    name: "accountToSelectedFaction",
+    outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
     inputs: [{ internalType: "bytes32", name: "_root", type: "bytes32" }],
     name: "changeRoot",
     outputs: [],
@@ -104,6 +111,13 @@ export const towerAbi = [
     name: "endExploration",
     outputs: [],
     stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "factionLimiter",
+    outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+    stateMutability: "view",
     type: "function",
   },
   {

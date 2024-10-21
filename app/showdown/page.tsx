@@ -12,7 +12,7 @@ const Leaderboard: React.FC = () => {
   const [opacity, setOpacity] = useState(false);
   const [hud, setHud] = useState(true);
   const { address } = useConnect();
-  const { setFactionPoinsts, factionPoints } = useStatistic()
+  const { setFactionPoinsts, factionPoints } = useStatistic();
   const getStats = async () => {
     try {
       const res = await axios.get(
@@ -21,16 +21,18 @@ const Leaderboard: React.FC = () => {
       console.log(res.data);
       if (res.data.rankings) {
         let sleeper = res.data.rankings.sleeper.reduce((a, c) => {
-          return a + c.sleeperAmount
+          return a + c.sleeperAmount;
         }, 0);
-        console.log(sleeper)
+        console.log(sleeper);
         let vigilant = res.data.rankings.vigilant.reduce((a, c) => {
-          return a + c.vigilantAmount
+          return a + c.vigilantAmount;
         }, 0);
-        console.log(vigilant)
-        setFactionPoinsts({ sleep: sleeper, vigilant: vigilant })
+        console.log(vigilant);
+        setFactionPoinsts({
+          sleep: Number(sleeper.toFixed(1)),
+          vigilant: Number(vigilant.toFixed(1)),
+        });
       }
-
     } catch (e) {
       console.log(e);
     }
@@ -77,17 +79,15 @@ const Leaderboard: React.FC = () => {
           }, 1000);
         }}
       />
-      <div className="mob">
-        Not available yet for mobile
-      </div>
+      <div className="mob">Not available yet for mobile</div>
       <div
         className={"tower"}
         style={{ opacity: hud ? 1 : 0, transition: "1s ease all" }}
       >
         <div className="tower__descr">
-          Exploration Phase 1. The first facti Exploration Phase 1. The first
-          faction to achieve 500 points will unlock new locationon to achieve
-          500
+          Exploration Phase 1: A hidden realm awaits. The first faction to reach
+          250,000 points will unveil a secret location, shrouded in mystery and
+          power.
         </div>
         <div className="tower__bottom">
           <div className="tower__bottom__text">
