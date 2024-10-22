@@ -1,4 +1,4 @@
-export const towerContract = "0xC0e43BDb6d6887DdC4F7fEBE7eADb1d79C0E4420";
+export const towerContract = "0xA7AF9f25ebeBfcc4A9f46F5340a9fA58E06694bc";
 export const towerAbi = [
   {
     inputs: [
