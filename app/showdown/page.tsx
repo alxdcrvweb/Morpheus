@@ -91,7 +91,7 @@ const Leaderboard: React.FC = () => {
         </div>
         <div className="tower__bottom">
           <div className="tower__bottom__text">
-            Exploration Phase 1. The first faction to achieve 500 points will
+            Exploration Phase 1. The first faction to achieve 250.000 points will
             unlock new location
           </div>
           <div className="tower__stats">
