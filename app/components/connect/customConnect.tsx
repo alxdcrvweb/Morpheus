@@ -11,7 +11,6 @@ const CustomConnect = () => {
   const { address, setProvider} = useConnect();
   const router = useRouter();
   const pathname = usePathname();
-
   useEffect(() => {
     if (pathname.includes("connect") && address) {
       router.push("/");
