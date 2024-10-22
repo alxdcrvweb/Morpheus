@@ -31,7 +31,7 @@ function TowerInfo() {
       <div className="container">
         <div className="head">
           {address ? (
-            <div className="leftCol">Score: {userPoints}</div>
+            <div className="leftCol">Score: {Number(userPoints).toFixed(0)}</div>
           ) : (
             <Link href="/connect">
               <div className="leftCol">Connect</div>
